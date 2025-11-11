@@ -1,88 +1,72 @@
-'use client';
-import { Shield, Award, Target, Users, CheckCircle, TrendingUp } from 'lucide-react';
+
+// === 1. CONSTANTES DE ESTILO Y DATOS ===
+
+const ACCENT_COLOR = 'bg-red-700';
+const ACCENT_TEXT = 'text-red-700';
+const FONT_SERIF_ITALIC = 'italic font-serif';
+
+// Contenido de la sección Quiénes Somos
+const ABOUT_TEXT_1 = "Somos una empresa 100% peruana conformada por profesionales de amplia experiencia en mantenimiento de equipos industriales, suministrando bienes y servicios con los más altos estándares de calidad, enfocados siempre en mejorar la operatividad y rentabilidad de los clientes que confían en nosotros.";
+const ABOUT_TEXT_2 = "VC Parts and Services se especializa en el suministro de piezas de repuestos para diferentes equipos mecánicos y eléctricos, como motores de combustión diésel, generadores eléctricos, cajas de engranajes, separadores de aceite y petróleo, compresores, bombas, intercambiadores de calor, filtros, acoplamientos, componentes electrónicos, etc.";
+const QUALITY_STATEMENT = "Todas nuestras piezas provienen de reconocidos fabricantes OEM ubicados principalmente en EUROPA, los cuales cumplen con los más exigentes estándares de calidad. Estamos comprometidos con el mejoramiento continuo de los procesos.";
+
 
 
 export default function QuienesSomos() {
-    const valores = [
-        { icon: Shield, text: 'Seguridad' },
-        { icon: Users, text: 'Confianza' },
-        { icon: Award, text: 'Excelencia' },
-        { icon: Target, text: 'Integridad' },
-        { icon: CheckCircle, text: 'Compromiso' },
-        { icon: TrendingUp, text: 'Responsabilidad' }
-    ];
-
+    
     return (
-        <section className="bg-white py-24 px-4">
-            <div className="max-w-7xl mx-auto">
-                {/* Título */}
-                <div className="mb-20">
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="h-1 w-16 bg-blue-900"></div>
-                        <h2 className="text-4xl md:text-5xl font-light text-slate-900">
-                            Quiénes <span className="font-semibold text-blue-900">Somos</span>
-                        </h2>
-                    </div>
-                </div>
+         <section className="py-20 md:py-32 bg-gray-50 font-sans overflow-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                {/* TÍTULO PRINCIPAL */}
+                <header className="text-center mb-16">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+                        Quiénes 
+                        <span className={` ${FONT_SERIF_ITALIC} ${ACCENT_TEXT} ml-2`}>Somos</span>
+                    </h2>
+                    {/* Línea de acento vinotinto */}
+                    <div className={`w-12 h-1 ${ACCENT_COLOR} mx-auto rounded-full mt-2`}></div>
+                </header>
 
-                {/* Grid de dos columnas */}
-                <div className="grid md:grid-cols-2 gap-16 mb-20">
-                    {/* Columna izquierda - Contenido */}
-                    <div className="space-y-8">
-                        <div className="border-l-4 border-blue-900 pl-6">
-                            <p className="text-slate-700 text-lg leading-relaxed">
-                                Somos una empresa 100% peruana conformada por profesionales de amplia experiencia en mantenimiento de equipos industriales,
-                                suministrando bienes y servicios de mantenimiento con los más altos estándares de calidad, en el mejor tiempo posible y enfocados
-                                siempre en mejorar la operatividad y rentabilidad de los clientes que confían en nosotros.
-                            </p>
-                        </div>
-
-                        <div className="border-l-4 border-slate-300 pl-6">
-                            <p className="text-slate-700 text-lg leading-relaxed">
-                                <span className="font-semibold text-slate-900">VC Parts and Services</span> se especializa en el suministro de piezas de repuestos para diferentes equipos mecánicos y eléctricos, como
-                                motores de combustión diésel, generadores eléctricos, cajas de engranajes, separadores de aceite y petróleo, compresores, bombas,
-                                intercambiadores de calor, filtros, acoplamientos, componentes electrónicos, etc.
-                            </p>
-                        </div>
-
-                        <div className="bg-slate-50 p-6 border-l-4 border-blue-600">
-                            <p className="text-slate-700 text-lg leading-relaxed">
-                                Todas nuestras piezas provienen de reconocidos fabricantes OEM ubicados principalmente en EUROPA, los cuales cumplen con los más
-                                exigentes estándares de calidad.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Columna derecha - Valores */}
-                    <div>
-                        <h3 className="text-2xl font-semibold text-slate-900 mb-8">Nuestros Valores</h3>
-                        <div className="grid grid-cols-1 gap-4">
-                            {valores.map((valor, index) => {
-                                const Icon = valor.icon;
-                                return (
-                                    <div
-                                        key={valor.text}
-                                        className="flex items-center gap-4 p-5 border border-slate-200 hover:border-blue-900 transition-colors duration-300 bg-white"
-                                    >
-                                        <div className="w-12 h-12 bg-blue-900 flex items-center justify-center flex-shrink-0">
-                                            <Icon className="w-6 h-6 text-white" />
-                                        </div>
-                                        <span className="text-slate-800 font-medium text-lg">{valor.text}</span>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Compromiso */}
-                <div className="border-t-2 border-slate-200 pt-12">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <p className="text-xl text-slate-700">
-                            Estamos comprometidos con el{' '}
-                            <span className="font-semibold text-blue-900 italic">mejoramiento continuo de los procesos</span>
+                {/* CONTENIDO PRINCIPAL: Diseño Minimalista de Doble Columna */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+                    
+                    {/* COLUMNA 1: INTRODUCCIÓN Y EXPERIENCIA */}
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-bold text-gray-800 border-l-4 border-red-300 pl-4 mb-4">
+                            Liderazgo y Experiencia
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                            {ABOUT_TEXT_1}
                         </p>
+                        <p className="text-gray-600 leading-relaxed">
+                            {ABOUT_TEXT_2}
+                        </p>
+                        
+                        {/* Pequeño Separador Visual */}
+                        <div className={`w-16 h-0.5 ${ACCENT_COLOR} mt-6`}></div>
                     </div>
+
+                    {/* COLUMNA 2: CALIDAD Y COMPROMISO (Bloque destacado) */}
+                    <div className="relative p-6 md:p-10 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                        {/* Etiqueta de Acento Vinotinto */}
+                        <div className={`absolute -top-3 left-4 px-3 py-1 ${ACCENT_COLOR} text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow-md`}>
+                            Calidad Global
+                        </div>
+
+                        <h3 className="text-2xl font-extrabold text-gray-900 mb-4 pt-4">
+                            Estándares y Suministro
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed italic">
+                            {QUALITY_STATEMENT}
+                        </p>
+
+                        {/* Elemento de diseño serio (opcional) */}
+                        <div className="flex justify-end mt-6">
+                            <span className="text-sm font-light text-gray-500">VC Parts and Services</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
