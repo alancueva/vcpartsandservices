@@ -1,5 +1,5 @@
 
-import QuienesSomos from "@/components/section/quienesSomos";
+import AboutUsSection from "@/components/section/quienes-somos-2";
 import NuestroServicios from "@/components/section/nuestrosServicios";
 import ValorOfrecemos from "@/components/section/valorqueOfrecemos";
 import HeroCarrusel from "@/components/section/HeroCarrusel"
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50">
       <HeroCarrusel/>
-      <QuienesSomos/>
+      <AboutUsSection/>
       <NuestroServicios/>
       <ValorOfrecemos/>
       <ClientesCarrusel/>
