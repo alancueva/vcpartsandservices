@@ -46,7 +46,7 @@ const ValorOfrecemos = () => {
           {/* Columna 3: PRECIO */}
           <div className="flex-1 max-w-sm text-right">
             <div className="flex items-start lg:items-end flex-row-reverse mb-4">
-              <BarChart3 className="w-6 h-6 text-red-600 ml-3 mt-1 flex-shrink-0" />
+              <BarChart3 className="w-6 h-6 text-red-600 ml-3 mb-15 flex-shrink-0" />
               <div className="text-right">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">PRECIO</h3>
                 <p className="text-gray-600 text-base leading-relaxed">
