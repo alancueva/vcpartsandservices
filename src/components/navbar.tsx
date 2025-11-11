@@ -120,7 +120,7 @@ export default function Navbar() {
                             {/* Texto a la derecha    Parts And Services*/}
                             <div className="hidden lg:block text-left">
                                 <div className="text-xl font-bold text-gray-800">
-                                    
+
                                 </div>
                                 {/* <div className="text-xs text-gray-500">Soluciones Industriales</div> */}
                             </div>
@@ -212,52 +212,72 @@ export default function Navbar() {
                 {isMobileMenuOpen && (
                     <div className="lg:hidden bg-white border-t border-gray-200 animate-slideDown">
                         <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
-                            {navLinks.map((link) => (
-                                <div key={link.nombre}>
-                                    <a
-                                        href={link.href}
-                                        className="block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
-                                        onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}
-                                    >
-                                        {link.nombre}
-                                    </a>
-                                    {link.dropdown && (
-                                        <div className="ml-4 mt-2 space-y-1">
-                                            {(link.dropdown === 'productos' ? productos : servicios).map((item) => (
-                                                <a
-                                                    key={item.nombre}
-                                                    href="#"
-                                                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                >
-                                                    <item.icon size={16} />
-                                                    {item.nombre}
-                                                </a>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                            <div className="pt-4 space-y-2">
+                            <div className="max-h-[80vh] overflow-y-auto max-w-7xl mx-auto px-4 py-4 space-y-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                                {navLinks.map((link) => {
+                                    const isDropdownOpen = activeDropdown === link.dropdown;
 
-                                <Link
-                                    href="/pages/contacto"
-                                    className="px-6 py-2.5 border-2 border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    <Mail size={18} className="mr-2" />
-                                    Contacto
-                                </Link>
-                                <Link
-                                    href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
-                                    className="px-6 py-2.5 border-2 border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
-                                    target="_blank" // Abre el enlace en una nueva pestaña
-                                    rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    <Book size={18} className="mr-2" />
-                                    BROCHURE
-                                </Link>
+                                    return (
+                                        <div key={link.nombre}>
+                                            <button
+                                                onClick={() => {
+                                                    if (link.dropdown) {
+                                                        setActiveDropdown(isDropdownOpen ? null : link.dropdown);
+                                                    } else {
+                                                        setIsMobileMenuOpen(false);
+                                                    }
+                                                }}
+                                                className="w-full flex justify-between items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
+                                            >
+                                                <span>{link.nombre}</span>
+                                                {link.dropdown && (
+                                                    <ChevronDown
+                                                        size={18}
+                                                        className={`transform transition-transform duration-200 ${isDropdownOpen ? "rotate-180 text-red-600" : "text-gray-500"
+                                                            }`}
+                                                    />
+                                                )}
+                                            </button>
+
+                                            {/* Subitems desplegables */}
+                                            {link.dropdown && isDropdownOpen && (
+                                                <div className="ml-6 mt-2 space-y-2 border-l-2 border-red-100 pl-3 animate-fadeIn">
+                                                    {(link.dropdown === 'productos' ? productos : servicios).map((item) => (
+                                                        <Link
+                                                            key={item.nombre}
+                                                            href={item.href}
+                                                            className="flex items-center gap-2 px-2 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
+                                                            onClick={() => setIsMobileMenuOpen(false)}
+                                                        >
+                                                            <item.icon size={16} className="text-red-500" />
+                                                            {item.nombre}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                                <div className="pt-4 space-y-2">
+
+                                    <Link
+                                        href="/pages/contacto"
+                                        className="px-6 py-2.5 border-2 border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <Mail size={18} className="mr-2" />
+                                        Contacto
+                                    </Link>
+                                    <Link
+                                        href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
+                                        className="px-6 py-2.5 border-2 border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                                        target="_blank" // Abre el enlace en una nueva pestaña
+                                        rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <Book size={18} className="mr-2" />
+                                        BROCHURE
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
