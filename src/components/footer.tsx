@@ -1,5 +1,36 @@
 
 import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const enlaces_rapidas = [
+    {
+        id: 1,
+        nombre: "Inicio",
+        href: "/"
+    },
+    {
+        id: 2,
+        nombre: "Nosotros",
+        href: "/pages/nosotros"
+    },
+    {
+        id: 3,
+        nombre: "Marcas",
+        href: "/pages/marcas"
+    },
+    {
+        id: 4,
+        nombre: "Industrias",
+        href: "/pages/industrias"
+    },
+    {
+        id: 5,
+        nombre: "Contacto",
+        href: "/pages/contacto"
+    }
+]
+
 
 export default function Footer() {
     return (
@@ -8,17 +39,22 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-                    {/* Logo & Description */}
-                    <div className="space-y-6">
-                        <div className="flex items-center space-x-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">VC</span>
+                    <div className="space-y-1 items-center md:items-center">
+                        {/* Logo + Texto */}
+                        <div className="flex items-center">
+                            <div className="relative w-20 h-20 md:w-40 md:h-40 flex-shrink-0">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Logo VC Parts"
+                                    fill
+                                    className="object-contain rounded-lg transition-transform duration-200 hover:scale-105"
+                                    priority
+                                />
                             </div>
-                            <div>
-                                <h3 className="text-white font-bold text-lg">VC Parts</h3>
-                                <p className="text-xs text-gray-400">and Services</p>
-                            </div>
+
                         </div>
+
+                        {/* Descripción */}
                         <p className="text-sm text-gray-400 leading-relaxed">
                             Soluciones integrales en repuestos y servicios automotrices con calidad garantizada.
                         </p>
@@ -61,14 +97,14 @@ export default function Footer() {
                             Enlaces
                         </h4>
                         <ul className="space-y-3">
-                            {['Inicio', 'Servicios', 'Productos', 'Nosotros', 'Contacto'].map((item) => (
-                                <li key={item}>
-                                    <a
-                                        href={`#${item.toLowerCase()}`}
+                            {enlaces_rapidas.map((item) => (
+                                <li key={item.id}>
+                                    <Link
+                                        href={item.href}
                                         className="text-sm hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
                                     >
-                                        {item}
-                                    </a>
+                                        {item.nombre}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
