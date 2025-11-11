@@ -218,25 +218,30 @@ export default function Navbar() {
 
                                     return (
                                         <div key={link.nombre}>
-                                            <button
-                                                onClick={() => {
-                                                    if (link.dropdown) {
-                                                        setActiveDropdown(isDropdownOpen ? null : link.dropdown);
-                                                    } else {
-                                                        setIsMobileMenuOpen(false);
+                                            {link.dropdown ? (
+                                                <button
+                                                    onClick={() => 
+                                                        setActiveDropdown(activeDropdown === link.dropdown ? null : link.dropdown || null)
                                                     }
-                                                }}
-                                                className="w-full flex justify-between items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
-                                            >
-                                                <span>{link.nombre}</span>
-                                                {link.dropdown && (
+                                                    className="w-full flex justify-between items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
+                                                >
+                                                    <span>{link.nombre}</span>
                                                     <ChevronDown
                                                         size={18}
-                                                        className={`transform transition-transform duration-200 ${isDropdownOpen ? "rotate-180 text-red-600" : "text-gray-500"
-                                                            }`}
+                                                        className={`transform transition-transform duration-200 ${
+                                                            isDropdownOpen ? "rotate-180 text-red-600" : "text-gray-500"
+                                                        }`}
                                                     />
-                                                )}
-                                            </button>
+                                                </button>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className="w-full block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
+                                                >
+                                                    {link.nombre}
+                                                </Link>
+                                            )}
 
                                             {/* Subitems desplegables */}
                                             {link.dropdown && isDropdownOpen && (
