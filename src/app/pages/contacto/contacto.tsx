@@ -1,0 +1,315 @@
+'use client';
+import React, { useState, useCallback, ChangeEvent, FormEvent } from 'react';
+import { Mail, Phone, MapPin, Loader2, Send } from 'lucide-react';
+
+// Colores basados en el esquema corporativo (vinotinto/rojo oscuro)
+const ACCENT_COLOR = 'bg-red-700';
+const ACCENT_TEXT = 'text-red-700';
+const HOVER_COLOR = 'hover:bg-red-800';
+
+interface FormData {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    message: string;
+}
+
+// Tipos para el estado de envío
+type Status = 'idle' | 'loading' | 'success' | 'error';
+
+// Tipos para las props de los componentes de input
+interface InputFieldProps {
+    label: string;
+    name: keyof FormData; // Asegura que el nombre sea una clave válida de FormData
+    type?: 'text' | 'email' | 'tel';
+    required?: boolean;
+    value: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+interface TextAreaFieldProps {
+    label: string;
+    name: keyof FormData;
+    required?: boolean;
+    value: string;
+    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+// Duración en milisegundos para que el mensaje de estado desaparezca
+const MESSAGE_DURATION = 5000;
+
+/**
+ * Componente para un campo de entrada de texto.
+ */
+const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', required = false, value, onChange }) => (
+    <div className="mb-4">
+        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
+            {label} {required && <span className="text-red-600">*</span>}
+        </label>
+        <input
+            type={type}
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange} // Cast temporal ya que InputFieldProps solo acepta HTMLInputElement
+            required={required}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm"
+            placeholder={`Introduce tu ${label.toLowerCase()}`}
+        />
+    </div>
+);
+
+/**
+ * Componente para un área de texto (mensaje).
+ */
+const TextAreaField: React.FC<TextAreaFieldProps> = ({ label, name, required = false, value, onChange }) => (
+    <div className="mb-6">
+        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
+            {label} {required && <span className="text-red-600">*</span>}
+        </label>
+        <textarea
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required={required}
+            rows={4}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm resize-none"
+            placeholder={`Escribe tu ${label.toLowerCase()} detallado...`}
+        />
+    </div>
+);
+
+/**
+ * Componente para mostrar mensajes de estado (éxito, error, carga).
+ */
+const StatusMessage: React.FC<{ status: Status; message: string }> = ({ status, message }) => {
+    if (!message || status === 'idle') return null;
+
+    const baseClasses = 'p-3 rounded-lg text-sm mb-4 font-semibold flex items-center';
+    let icon: React.ReactElement;
+    let finalClasses: string;
+
+    switch (status) {
+        case 'loading':
+            icon = <Loader2 className="h-5 w-5 mr-2 animate-spin" />;
+            finalClasses = 'bg-red-100 text-red-700';
+            break;
+        case 'success':
+            icon = <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>;
+            finalClasses = 'bg-green-100 text-green-700';
+            break;
+        case 'error':
+            icon = <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>;
+            finalClasses = 'bg-red-100 text-red-700';
+            break;
+        default:
+            return null;
+    }
+
+    return (
+        <div className={`${baseClasses} ${finalClasses}`}>
+            {icon}
+            {message}
+        </div>
+    );
+};
+
+
+export default function Contacto() {
+    const [formData, setFormData] = useState<FormData>({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: '',
+    });
+    const [status, setStatus] = useState<Status>('idle');
+    const [message, setMessage] = useState<string>('');
+
+    // Función para limpiar el mensaje de estado después del temporizador
+    const clearMessage = useCallback(() => {
+        setMessage('');
+        setStatus('idle');
+    }, []);
+
+    // Maneja el cambio en todos los inputs (text y textarea)
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    /**
+     * Función simulada de envío de formulario, fuertemente tipada para el evento.
+     */
+    const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        clearMessage(); 
+
+        // Validación básica
+        if (!formData.name || !formData.email || !formData.message) {
+            setMessage('Por favor, rellene los campos obligatorios (Nombre, Correo, Mensaje).');
+            setStatus('error');
+
+            setTimeout(clearMessage, MESSAGE_DURATION);
+            return;
+        }
+
+        setStatus('loading');
+        setMessage('Enviando mensaje...');
+
+        try {
+            // Simulación de una llamada API. 
+            // **IMPORTANTE**: Reemplazar esto con la lógica real del backend o una ruta de API de Next.js.
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // Simulación exitosa
+            setStatus('success');
+            setMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+            setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+
+        } catch (error) {
+            setStatus('error');
+            setMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+            console.error('Error de envío:', error);
+        }
+
+        // Ocultar el mensaje después de 5 segundos, ya sea éxito o error
+        setTimeout(clearMessage, MESSAGE_DURATION);
+        
+    }, [formData, clearMessage]);
+
+    return (
+        <section className="py-20 md:py-32 bg-gray-50 font-sans min-h-screen flex items-center justify-center">
+            <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* TÍTULO PRINCIPAL */}
+                <header className="text-center mb-12 md:mb-16">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+                        Comuníquese
+                        <span className={`italic font-serif ${ACCENT_TEXT} ml-2`}>con nosotros</span>
+                    </h2>
+                    {/* Línea de acento vinotinto */}
+                    <div className={`w-12 h-1 ${ACCENT_COLOR} mx-auto rounded-full mt-2`}></div>
+                </header>
+
+                {/* CONTENIDO (2 Columnas: Info + Formulario) */}
+                <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+                    {/* COLUMNA IZQUIERDA: INFORMACIÓN DE CONTACTO (Sólida y profesional) */}
+                    <div className={`lg:w-1/3 p-8 md:p-12 ${ACCENT_COLOR} text-white flex flex-col justify-between`}>
+                        <div className="space-y-8">
+                            <h3 className="text-3xl font-bold leading-tight border-b border-white border-opacity-30 pb-4 mb-4">
+                                Hablemos de su proyecto
+                            </h3>
+                            <p className="text-gray-200">
+                                Estamos listos para asistirle con soluciones de precisión, equipos y consumibles. Contáctenos para una cotización o asesoría técnica.
+                            </p>
+
+                            {/* Detalles de Contacto */}
+                            <div className="space-y-6">
+                                <a href="tel:+51960785273" className="flex items-center text-lg hover:text-gray-300 transition duration-200">
+                                    <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
+                                    <span>+51 960 785 273</span>
+                                </a>
+                                <a href="mailto:info@vcpartsandservices.com" className="flex items-center text-lg hover:text-gray-300 transition duration-200">
+                                    <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
+                                    <span>info@vcpartsandservices.com</span>
+                                </a>
+                                <div className="flex items-start text-lg">
+                                    <MapPin className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
+                                    <span>Urb. San Rafael J4-16 Nuevo Chimbote</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Pequeño CTA al final */}
+                        <div className="mt-10 pt-6 border-t border-white border-opacity-30">
+                            <p className="text-sm text-gray-300">
+                                *Todos los campos con asterisco son obligatorios.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* COLUMNA DERECHA: FORMULARIO DE CONTACTO (Minimalista y limpio) */}
+                    {/* COLUMNA DERECHA: FORMULARIO DE CONTACTO */}
+                    <div className="lg:w-2/3 p-8 md:p-12">
+                        <h3 className="text-3xl font-semibold text-gray-800 mb-8">
+                            Envíenos un mensaje
+                        </h3>
+
+                        <StatusMessage status={status} message={message} />
+
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <InputField
+                                    label="Nombre y Apellido"
+                                    name="name"
+                                    required={true}
+                                    value={formData.name}
+                                    onChange={handleChange} // Cast temporal
+                                />
+                                <InputField
+                                    label="Correo"
+                                    name="email"
+                                    type="email"
+                                    required={true}
+                                    value={formData.email}
+                                    onChange={handleChange} // Cast temporal
+                                />
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <InputField
+                                    label="Teléfono"
+                                    name="phone"
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                />
+                                <InputField
+                                    label="Empresa"
+                                    name="company"
+                                    value={formData.company}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <TextAreaField
+                                label="Su mensaje"
+                                name="message"
+                                required={true}
+                                value={formData.message}
+                                onChange={handleChange}
+                            />
+
+                            {/* Botón de Envío */}
+                            <button
+                                type="submit"
+                                disabled={status === 'loading'}
+                                className={`w-full flex items-center justify-center px-6 py-3 border border-transparent 
+                                            text-base font-medium rounded-xl shadow-lg text-white 
+                                            ${ACCENT_COLOR} ${HOVER_COLOR} transition duration-300 ease-in-out 
+                                            transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-red-300 disabled:opacity-60 disabled:cursor-not-allowed`}
+                            >
+                                {status === 'loading' ? (
+                                    <>
+                                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                                        Enviando...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="w-5 h-5 mr-2" />
+                                        Enviar Mensaje
+                                    </>
+                                )}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
