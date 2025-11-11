@@ -1,20 +1,23 @@
 'use client';
-import  { useState, useEffect, ElementType } from 'react';
-import { Menu, 
-    X, 
-    ChevronDown, 
-    Phone, 
-    Mail, 
-    Wrench, 
-    Cog, 
-    Droplet, 
-    Wind, 
-    Beaker, 
-    Settings, 
-    Search,
-    
+import { useState, useEffect, ElementType } from 'react';
+import {
+    Menu,
+    X,
+    ChevronDown,
+    Phone,
+    Mail,
+    Wrench,
+    Cog,
+    Droplet,
+    Wind,
+    Beaker,
+    Settings,
+    Search, // Mantener Search si se usa en otro lugar, si no, se puede quitar.
+    Book // Icono para BROCHURE
+
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavLink {
     nombre: string;
@@ -49,18 +52,18 @@ export default function Navbar() {
     }, []);
 
     const productos: Producto[] = [
-        { nombre: 'Repuestos Motores Diesel', icon: Cog, descripcion: 'Piezas originales y alternativas', href:'/pages/productos/repuestos-motores-diesel' },
-        { nombre: 'Sistema de Inyección', icon: Droplet, descripcion: 'Inyectores y componentes', href:'/pages/productos/sistema-inyeccion' },
-        { nombre: 'Turbocompresores', icon: Wind, descripcion: 'Turbos industriales', href:'/pages/productos/turbocompresores' },
-        { nombre: 'Purificadores de Aceite', icon: Beaker, descripcion: 'Separadores y filtros', href:'/pages/productos/purificadores-separadores' },
-        { nombre: 'Intercambiadores de Calor', icon: Settings, descripcion: 'Bombas y compresores', href:'/pages/productos/intercambiadores-de-calor' },
-        { nombre: 'Equipos de Lapeado', icon: Wrench, descripcion: 'Precisión y consumibles',href:'/pages/productos/equipos-de-lapeado'  },
-        { nombre: 'Sistema de limpieza por Ultrasonido', icon: Beaker, descripcion: 'Sistema de limpieza por Ultrasonido',href:'/pages/productos/sistemas-de-limpieza'  }
+        { nombre: 'Repuestos Motores Diesel', icon: Cog, descripcion: 'Piezas originales y alternativas', href: '/pages/productos/repuestos-motores-diesel' },
+        { nombre: 'Sistema de Inyección', icon: Droplet, descripcion: 'Inyectores y componentes', href: '/pages/productos/sistema-inyeccion' },
+        { nombre: 'Turbocompresores', icon: Wind, descripcion: 'Turbos industriales', href: '/pages/productos/turbocompresores' },
+        { nombre: 'Purificadores de Aceite', icon: Beaker, descripcion: 'Separadores y filtros', href: '/pages/productos/purificadores-separadores' },
+        { nombre: 'Intercambiadores de Calor', icon: Settings, descripcion: 'Bombas y compresores', href: '/pages/productos/intercambiadores-de-calor' },
+        { nombre: 'Equipos de Lapeado', icon: Wrench, descripcion: 'Precisión y consumibles', href: '/pages/productos/equipos-de-lapeado' },
+        { nombre: 'Sistema de limpieza por Ultrasonido', icon: Beaker, descripcion: 'Sistema de limpieza por Ultrasonido', href: '/pages/productos/sistemas-de-limpieza' }
     ];
 
     const servicios: Servicio[] = [
-        { nombre: 'Lapeado y pulido de precisión', icon: Wrench, href: '/pages/servicios/lapeado-y-pulido-de-presicion'},
-        { nombre: 'Limpieza por Ultrasonido', icon: Beaker, href: '/pages/servicios/limpieza-de-ultrasonido'}
+        { nombre: 'Lapeado y pulido de precisión', icon: Wrench, href: '/pages/servicios/lapeado-y-pulido-de-presicion' },
+        { nombre: 'Limpieza por Ultrasonido', icon: Beaker, href: '/pages/servicios/limpieza-de-ultrasonido' }
     ];
 
     const navLinks: NavLink[] = [
@@ -102,20 +105,26 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
-                        <a href="#" className="flex items-center gap-3 group">
-                            <div className="relative">
-                                <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition">
-                                    <span className="text-white font-bold text-xl">VC</span>
-                                </div>
+                        <Link href="/" className="flex items-center gap-3 group">
+                            {/* Logo */}
+                            <div className="relative w-18 h-18 lg:w-25 lg:h-25 flex-shrink-0">
+                                <Image
+                                    src="/logo.png"        // ruta dentro de /public
+                                    alt="Logo Parts And Services"
+                                    fill
+                                    className="object-contain rounded-lg transition-transform duration-200 group-hover:scale-105"
+                                    priority
+                                />
                             </div>
-                            <div className="hidden lg:block">
+
+                            {/* Texto a la derecha    Parts And Services*/}
+                            <div className="hidden lg:block text-left">
                                 <div className="text-xl font-bold text-gray-800">
-                                    Parts And Services
-                                    </div>
+                                    
+                                </div>
                                 {/* <div className="text-xs text-gray-500">Soluciones Industriales</div> */}
                             </div>
-                        </a>
-
+                        </Link>
                         {/* Desktop Menu */}
                         <div className="hidden lg:flex items-center gap-1">
                             {navLinks.map((link) => (
@@ -171,18 +180,22 @@ export default function Navbar() {
                             {/* <button className="p-2 hover:bg-gray-100 rounded-lg transition">
                                 <Search size={20} className="text-gray-600" />
                             </button> */}
-                            <a
-                                href="#contacto"
-                                className="px-6 py-2.5 border-2 border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5"
+                            <Link
+                                href="/pages/contacto"
+                                className="px-6 py-2.5 border-2 border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                             >
+                                <Mail size={18} className="mr-2" />
                                 Contacto
-                            </a>
-                            <a
-                                href="#brochure"
-                                className="px-6 py-2.5 border-2 border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition"
+                            </Link>
+                            <Link
+                                href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
+                                className="px-6 py-2.5 border-2 border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                                target="_blank" // Abre el enlace en una nueva pestaña
+                                rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
                             >
+                                <Book size={18} className="mr-2" />
                                 BROCHURE
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -190,7 +203,7 @@ export default function Navbar() {
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="lg:hidden p-2 hover:bg-gray-300 rounded-lg transition"
                         >
-                            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isMobileMenuOpen ? <X size={24} className='text-gray-600' /> : <Menu size={24} className='text-gray-600' />}
                         </button>
                     </div>
                 </div>
@@ -226,20 +239,25 @@ export default function Navbar() {
                                 </div>
                             ))}
                             <div className="pt-4 space-y-2">
-                                <a
-                                    href="#contacto"
-                                    className="block w-full px-4 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white text-center rounded-lg font-semibold"
+
+                                <Link
+                                    href="/pages/contacto"
+                                    className="px-6 py-2.5 border-2 border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
+                                    <Mail size={18} className="mr-2" />
                                     Contacto
-                                </a>
-                                <a
-                                    href="#brochure"
-                                    className="block w-full px-4 py-3 bg-blue-600 text-white text-center rounded-lg font-semibold"
+                                </Link>
+                                <Link
+                                    href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
+                                    className="px-6 py-2.5 border-2 border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                                    target="_blank" // Abre el enlace en una nueva pestaña
+                                    rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
+                                    <Book size={18} className="mr-2" />
                                     BROCHURE
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
