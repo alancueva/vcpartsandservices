@@ -56,7 +56,7 @@ export default function Footer() {
 
                         {/* Descripción */}
                         <p className="text-sm text-gray-400 leading-relaxed">
-                            Soluciones integrales en repuestos y servicios automotrices con calidad garantizada.
+                            Especialistas en mantenimiento de equipos industriales y suministro de repuestos mecánicos y eléctricos.
                         </p>
                     </div>
 
