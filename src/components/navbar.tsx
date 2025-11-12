@@ -182,14 +182,14 @@ export default function Navbar() {
                             </button> */}
                             <Link
                                 href="/pages/contacto"
-                                className="px-6 py-2.5 border border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                                className="px-6 py-2.5 border border-red-700 text-red-700 rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                             >
                                 <Mail size={18} className="mr-2" />
                                 Contacto
                             </Link>
                             <Link
                                 href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
-                                className="px-6 py-2.5 border border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                                className="px-6 py-2.5 border border-blue-700 text-blue-700  rounded-lg font-semibold hover:bg-blue-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
                                 target="_blank" // Abre el enlace en una nueva pestaña
                                 rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
                             >
@@ -266,7 +266,7 @@ export default function Navbar() {
 
                                     <Link
                                         href="/pages/contacto"
-                                        className="px-6 py-2.5 border border-red-600 text-red-600 rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                                        className="px-6 py-2.5 border border-red-700 text-red-700 rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         <Mail size={18} className="mr-2" />
@@ -274,7 +274,7 @@ export default function Navbar() {
                                     </Link>
                                     <Link
                                         href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
-                                        className="px-6 py-2.5 border border-blue-600 text-blue-600  rounded-lg font-semibold hover:bg-blue-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                                        className="px-6 py-2.5 border border-blue-700 text-blue-700  rounded-lg font-semibold hover:bg-blue-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
                                         target="_blank" // Abre el enlace en una nueva pestaña
                                         rel="noopener noreferrer" // Mejora la seguridad al abrir en nueva pestaña
                                         onClick={() => setIsMobileMenuOpen(false)}
