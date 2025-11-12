@@ -156,9 +156,12 @@ export default function Footer() {
                             <span>Persona de contacto:</span>
                             <span className="text-gray-300 font-medium">Ing. Jacques López Ortega</span>
                         </div>
-                        {/* <div className="text-xs text-gray-500">
-                            Elaborado por: <span className="text-gray-400">publimagenperu</span>
-                        </div> */}
+                        <div className="text-xs text-gray-400">
+                            <span>Diseño web:</span>
+                            <a href="https://alancueva.vercel.app/" target="_blank" rel="noopener noreferrer">
+                             <span className="text-gray-300 font-medium"> Alan Cueva</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
