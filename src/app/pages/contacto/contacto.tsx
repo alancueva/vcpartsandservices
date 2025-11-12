@@ -1,6 +1,9 @@
 'use client';
 import React, { useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import { Mail, Phone, MapPin, Loader2, Send } from 'lucide-react';
+import TextAreaField from '@/components/ux/textarea';
+import InputField from '@/components/ux/Input';
+
 
 // Colores basados en el esquema corporativo (vinotinto/rojo oscuro)
 const ACCENT_COLOR = 'bg-red-700';
@@ -18,68 +21,9 @@ interface FormData {
 // Tipos para el estado de envío
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
-// Tipos para las props de los componentes de input
-interface InputFieldProps {
-    label: string;
-    name: keyof FormData; // Asegura que el nombre sea una clave válida de FormData
-    type?: 'text' | 'email' | 'tel';
-    required?: boolean;
-    value: string;
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-interface TextAreaFieldProps {
-    label: string;
-    name: keyof FormData;
-    required?: boolean;
-    value: string;
-    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-}
 
 // Duración en milisegundos para que el mensaje de estado desaparezca
 const MESSAGE_DURATION = 5000;
-
-/**
- * Componente para un campo de entrada de texto.
- */
-const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', required = false, value, onChange }) => (
-    <div className="mb-4">
-        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
-            {label} {required && <span className="text-red-600">*</span>}
-        </label>
-        <input
-            type={type}
-            id={name}
-            name={name}
-            value={value}
-            onChange={onChange} // Cast temporal ya que InputFieldProps solo acepta HTMLInputElement
-            required={required}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm"
-            placeholder={`Introduce tu ${label.toLowerCase()}`}
-        />
-    </div>
-);
-
-/**
- * Componente para un área de texto (mensaje).
- */
-const TextAreaField: React.FC<TextAreaFieldProps> = ({ label, name, required = false, value, onChange }) => (
-    <div className="mb-6">
-        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
-            {label} {required && <span className="text-red-600">*</span>}
-        </label>
-        <textarea
-            id={name}
-            name={name}
-            value={value}
-            onChange={onChange}
-            required={required}
-            rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm resize-none"
-            placeholder={`Escribe tu ${label.toLowerCase()} detallado...`}
-        />
-    </div>
-);
 
 /**
  * Componente para mostrar mensajes de estado (éxito, error, carga).
