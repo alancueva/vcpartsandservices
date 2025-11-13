@@ -12,7 +12,7 @@ import {
     Wind,
     Beaker,
     Settings,
-    Search, // Mantener Search si se usa en otro lugar, si no, se puede quitar.
+    // Search, 
     Book // Icono para BROCHURE
 
 } from 'lucide-react';
