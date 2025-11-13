@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, ElementType } from 'react';
+import { useState, useEffect, ElementType, useRef } from 'react';
 import {
     Menu,
     X,
@@ -50,6 +50,28 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // 1. Usar useRef para almacenar la referencia del temporizador de retardo
+    const menuLeaveTimer = useRef<number | null>(null);
+    // 2. Función para manejar la entrada del ratón (onMouseEnter)
+    const handleMouseEnter = (dropdownName: 'productos' | 'servicios') => {
+        // Limpia cualquier temporizador pendiente para evitar que el menú se oculte
+        if (menuLeaveTimer.current) {
+            window.clearTimeout(menuLeaveTimer.current);
+            menuLeaveTimer.current = null;
+        }
+        // Muestra el menú inmediatamente
+        setActiveDropdown(dropdownName);
+    };
+
+    // 3. Función para manejar la salida del ratón (onMouseLeave) con retardo
+    const handleMouseLeave = () => {
+        // Establece un retardo de 200ms para ocultar el menú.
+        // Esto le da tiempo al usuario para entrar al cuerpo del menú desplegable.
+        menuLeaveTimer.current = window.setTimeout(() => {
+            setActiveDropdown(null);
+        }, 200);
+    };
 
     const productos: Producto[] = [
         { nombre: 'Repuestos Motores Diesel', icon: Cog, descripcion: 'Piezas originales y alternativas', href: '/pages/productos/repuestos-motores-diesel' },
@@ -131,8 +153,10 @@ export default function Navbar() {
                                 <div
                                     key={link.nombre}
                                     className="relative"
-                                    onMouseEnter={() => link.dropdown && setActiveDropdown(link.dropdown)}
-                                    onMouseLeave={() => setActiveDropdown(null)}
+                                    onMouseEnter={() => link.dropdown && handleMouseEnter(link.dropdown)}
+                                    onMouseLeave={handleMouseLeave}
+                                    // onMouseEnter={() => link.dropdown && setActiveDropdown(link.dropdown)}
+                                    // onMouseLeave={() => setActiveDropdown(null)}
                                 >
                                     <Link
                                         href={link.href}
@@ -150,7 +174,7 @@ export default function Navbar() {
                                         <div className="absolute top-full left-0 mt-2 w-screen max-w-4xl -ml-32 bg-white rounded-lg shadow-2xl border border-gray-100 p-6 animate-fadeIn">
                                             <div className="grid grid-cols-2 gap-4">
                                                 {(link.dropdown === 'productos' ? productos : servicios).map((item) => (
-                                                    <a
+                                                    <Link
                                                         key={item.nombre}
                                                         href={item.href}
                                                         className="flex items-start gap-3 p-3 rounded-lg hover:bg-red-50 transition group"
@@ -166,7 +190,7 @@ export default function Navbar() {
                                                                 <div className="text-sm text-gray-500">{item.descripcion}</div>
                                                             )} */}
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 ))}
                                             </div>
                                         </div>
