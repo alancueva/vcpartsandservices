@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VC Parts and Services | Mantenimiento y Suministro Industrial en Perú",
+  title: "VC Parts and Services",
   description:
     "VC Parts and Services es una empresa peruana especializada en mantenimiento de equipos industriales y suministro de repuestos mecánicos y eléctricos. Ofrecemos soluciones integrales en motores diésel, generadores, compresores, bombas, separadores de aceite y más, con los más altos estándares de calidad y confiabilidad.",
   keywords: [
