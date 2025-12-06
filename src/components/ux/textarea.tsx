@@ -23,7 +23,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({ label, name, required = f
             onChange={onChange}
             required={required}
             rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm resize-none"
+            className="w-full px-4 py-2  text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm resize-none"
             placeholder={`Escribe tu ${label.toLowerCase()} detallado...`}
         />
     </div>

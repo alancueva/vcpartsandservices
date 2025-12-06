@@ -25,7 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', req
             value={value}
             onChange={onChange} // Cast temporal ya que InputFieldProps solo acepta HTMLInputElement
             required={required}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm"
+            className="w-full px-4 py-2 border border-gray-300  text-gray-700 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-red-600 transition duration-150 shadow-sm placeholder-gray-400 text-sm"
             placeholder={`Introduce tu ${label.toLowerCase()}`}
         />
     </div>
