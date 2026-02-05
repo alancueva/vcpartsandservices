@@ -90,7 +90,7 @@ export default function Contacto() {
     const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        clearMessage(); 
+        clearMessage();
 
         // Validación básica
         if (!formData.name || !formData.email || !formData.message) {
@@ -105,24 +105,50 @@ export default function Contacto() {
         setMessage('Enviando mensaje...');
 
         try {
-            // Simulación de una llamada API. 
-            // **IMPORTANTE**: Reemplazar esto con la lógica real del backend o una ruta de API de Next.js.
-            await new Promise(resolve => setTimeout(resolve, 2000));
 
-            // Simulación exitosa
-            setStatus('success');
-            setMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-            setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+            const response = await fetch('/send_email.php', {  // Ajusta esta URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error en el servidor');
+            }
+
+            const result = await response.json();
+            // // Simulación de una llamada API. 
+            // // **IMPORTANTE**: Reemplazar esto con la lógica real del backend o una ruta de API de Next.js.
+            // await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // // Simulación exitosa
+            // setStatus('success');
+            // setMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+            // setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+
+            if (result.success) {
+                setStatus('success');
+                setMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+                setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+            } else {
+                throw new Error(result.error || 'Error desconocido');
+            }
 
         } catch (error) {
+            // setStatus('error');
+            // setMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+            // console.error('Error de envío:', error);
+
             setStatus('error');
-            setMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+            setMessage(error instanceof Error ? error.message : 'Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
             console.error('Error de envío:', error);
         }
 
         // Ocultar el mensaje después de 5 segundos, ya sea éxito o error
         setTimeout(clearMessage, MESSAGE_DURATION);
-        
+
     }, [formData, clearMessage]);
 
     return (
