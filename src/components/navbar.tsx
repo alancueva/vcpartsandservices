@@ -188,10 +188,11 @@ export default function Navbar() {
               <div className="relative w-18 h-18 lg:w-25 lg:h-25 flex-shrink-0">
                 <Image
                   src="/logo.png" // ruta dentro de /public
-                  alt="Logo Parts And Services"
+                  alt="VC Parts and Services - Logo empresa de soluciones industriales en Perú"
                   fill
                   className="object-contain rounded-lg transition-transform duration-200 group-hover:scale-105"
                   priority
+                  sizes="(max-width: 768px) 72px, 100px"
                 />
               </div>
 
