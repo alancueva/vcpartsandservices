@@ -1,0 +1,57 @@
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.vcpartsandservices.com/sitemap.xml
+
+# Block unnecessary directories
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Allow specific resource directories
+Allow: /public/
+Allow: /productos/
+Allow: /servicios/
+Allow: /marcas/
+Allow: /industrias/
+Allow: /clientes/
+
+# Block PHP files from being indexed (except send_email.php for functionality)
+Disallow: /*.php$
+Allow: /send_email.php
+
+# SEO friendly directives for search engines
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Special directives for image SEO
+User-agent: Googlebot-Image
+Allow: /public/
+Allow: /productos/
+Allow: /servicios/
+Allow: /marcas/
+Allow: /industrias/
+Allow: /clientes/
+
+# Block common bot patterns
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
