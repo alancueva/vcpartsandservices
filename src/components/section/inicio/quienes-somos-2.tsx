@@ -118,8 +118,8 @@ export default function AboutUsSection() {
 
             {/* Compromiso final */}
             <p className="text-xl font-bold text-gray-800 italic">
-              "Estamos comprometidos con el mejoramiento continuo de los
-              procesos."
+              &ldquo;Estamos comprometidos con el mejoramiento continuo de los
+              procesos.&rdquo;
             </p>
           </div>
         </div>
