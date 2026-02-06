@@ -1,5 +1,36 @@
+import { Metadata } from "next";
 import Contacto from "./contacto";
 import LocationMap from "./LocationMap";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description: "Contacte con VC Parts and Services. Ubicados en Urb. San Rafael J4-16, Nuevo Chimbote, Ancash, Perú. Llámenos al +51 960 785 273 o escríbanos a info@vcpartsandservices.com.",
+  keywords: [
+    "contacto VC Parts and Services",
+    "información contacto",
+    "Chimbote Ancash Perú",
+    "servicios industriales contacto",
+    "repuestos industriales contacto",
+    "teléfono VC Parts",
+    "email VC Parts",
+    "dirección VC Parts",
+    "mapa ubicación",
+    "formulario contacto"
+  ],
+  openGraph: {
+    title: "Contacto | VC Parts and Services",
+    description: "Contacte con nosotros. Ubicados en Chimbote, Ancash, Perú. Expertos en mantenimiento industrial y repuestos.",
+    url: "https://www.vcpartsandservices.com/pages/contacto",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "VC Parts and Services - Contacto",
+      },
+    ],
+  },
+};
 
 interface LocationInfo {
     address: string;

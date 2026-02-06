@@ -1,5 +1,37 @@
 
+import { Metadata } from "next";
 import { Leaf, Clock, DollarSign, Zap, Settings, ShieldCheck } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Limpieza por Ultrasonido",
+  description: "Servicio profesional de limpieza por ultrasonido para componentes industriales. Método eficiente que ahorra tiempo y dinero, con limpieza total y sostenibilidad.",
+  keywords: [
+    "limpieza por ultrasonido",
+    "limpieza industrial",
+    "limpieza de componentes",
+    "sistemas de limpieza",
+    "limpieza eficiente",
+    "ahorro tiempo limpieza",
+    "limpieza sostenible",
+    "automatización limpieza",
+    "Kemet ultrasonido",
+    "servicios industriales Perú",
+    "VC Parts and Services"
+  ],
+  openGraph: {
+    title: "Limpieza por Ultrasonido | VC Parts and Services",
+    description: "Servicio profesional de limpieza por ultrasonido. Método eficiente que ahorra tiempo y dinero con limpieza total y sostenibilidad.",
+    url: "https://www.vcpartsandservices.com/pages/servicios/limpieza-de-ultrasonido",
+    images: [
+      {
+        url: "/servicios/LAPEADODEPRECISION1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Limpieza por ultrasonido",
+      },
+    ],
+  },
+};
 
 // Interfaz para tipificar los beneficios
 interface Beneficio {
