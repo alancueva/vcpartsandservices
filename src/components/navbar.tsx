@@ -27,7 +27,6 @@ interface NavLink {
 
 interface Producto {
   nombre: string;
-  icon: ElementType;
   descripcion: string;
   href: string;
 }
@@ -75,46 +74,25 @@ export default function Navbar() {
 
   const productos: Producto[] = [
     {
-      nombre: "Repuestos Motores Diesel",
-      icon: Cog,
-      descripcion: "Piezas originales y alternativas",
-      href: "/pages/productos/repuestos-motores-diesel",
+      nombre: "Lapeado de diamante y precisión",
+      descripcion: "Lapeado de diamante y precisión",
+      href: "/pages/productos/kemet/Lapeado-de-diamante-y-precision",
     },
     {
-      nombre: "Sistema de Inyección",
-      icon: Droplet,
-      descripcion: "Inyectores y componentes",
-      href: "/pages/productos/sistema-inyeccion",
+      nombre: "Preparación de Muestras",
+      descripcion:
+        "Preparación de muestras metalográficas, geológicas y petrográficas",
+      href: "/pages/productos/kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas",
     },
     {
-      nombre: "Turbocompresores",
-      icon: Wind,
-      descripcion: "Turbos industriales",
-      href: "/pages/productos/turbocompresores",
+      nombre: "Limpieza, tratamientos de superficies y NDT",
+      descripcion: "Limpieza, tratamientos de superficies y NDT",
+      href: "/pages/productos/kemet/Limpieza-tratamientos-de-superficies-y-NDT",
     },
     {
-      nombre: "Purificadores de Aceite",
-      icon: Beaker,
-      descripcion: "Separadores y filtros",
-      href: "/pages/productos/purificadores-separadores",
-    },
-    {
-      nombre: "Intercambiadores de Calor",
-      icon: Settings,
-      descripcion: "Bombas y compresores",
-      href: "/pages/productos/intercambiadores-de-calor",
-    },
-    {
-      nombre: "Equipos de Lapeado",
-      icon: Wrench,
-      descripcion: "Precisión y consumibles",
-      href: "/pages/productos/equipos-de-lapeado",
-    },
-    {
-      nombre: "Sistema de limpieza por Ultrasonido",
-      icon: Beaker,
-      descripcion: "Sistema de limpieza por Ultrasonido",
-      href: "/pages/productos/sistemas-de-limpieza",
+      nombre: "Ingeniería de precisión y herramientas",
+      descripcion: "Ingeniería de precisión y herramientas",
+      href: "/pages/productos/kemet/Ingenieria-de-precision-y-herramientas",
     },
   ];
 
@@ -146,7 +124,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="hidden md:block bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 text-sm">
+      <div className="hidden md:block bg-red-800 text-white py-2 px-4 text-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex gap-8">
             <a
@@ -284,7 +262,7 @@ export default function Navbar() {
                   href="/brochure/VC-BROCHURE.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-2.5 bg-red-700 text-white text-[11px]  rounded-md font-bold uppercase tracking-[0.2em] hover:bg-red-600 transition-all shadow-sm hover:shadow-md"
+                  className="px-8 py-2.5 bg-red-800 text-white text-[11px]  rounded-md font-bold uppercase tracking-[0.2em] hover:bg-red-600 transition-all shadow-sm hover:shadow-md"
                 >
                   Brochure
                 </a>
@@ -392,7 +370,7 @@ export default function Navbar() {
                     href="/brochure/VC-BROCHURE.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-4 rounded-md bg-red-700  text-white text-center text-xs font-bold uppercase tracking-widest block"
+                    className="w-full py-4 rounded-md bg-red-800  text-white text-center text-xs font-bold uppercase tracking-widest block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Descargar Brochure
