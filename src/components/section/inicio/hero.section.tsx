@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 
+const ACCENT_COLOR = "bg-red-700";
+const ACCENT_HOVER = "hover:bg-red-800";
+const ACCENT_TEXT = "text-red-700";
+
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -46,47 +50,11 @@ export default function HeroSection() {
             </p>
 
             {/* Widget de Búsqueda (Sin Iconos) */}
-            <div className="bg-white p-5  mb-6 max-w-lg">
-              <div className="grid grid-cols-3 gap-6 mb-8 pb-6">
-                <div className="flex flex-col gap-2 cursor-pointer group">
-                  <span className="text-[9px] uppercase tracking-widest text-slate-400 font-black">
-                    Servicio
-                  </span>
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-900">
-                    <span>Lapeado</span>
-                    <span className="text-[8px] text-slate-300 group-hover:text-blue-600 transition-colors">
-                      ▼
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2 cursor-pointer border-x border-slate-100 px-6 group">
-                  <span className="text-[9px] uppercase tracking-widest text-slate-400 font-black">
-                    Área
-                  </span>
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-900">
-                    <span>Precisión</span>
-                    <span className="text-[8px] text-slate-300 group-hover:text-blue-600 transition-colors">
-                      ▼
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2 cursor-pointer group">
-                  <span className="text-[9px] uppercase tracking-widest text-slate-400 font-black">
-                    Gama
-                  </span>
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-900">
-                    <span>Kemet</span>
-                    <span className="text-[8px] text-slate-300 group-hover:text-blue-600 transition-colors">
-                      ▼
-                    </span>
-                  </div>
-                </div>
-              </div>
-
+            <div className="bg-white p-2  mb-6 max-w-lg">
               <div className="flex items-center justify-between">
                 <button
                   onClick={handleWhatsAppContact}
-                  className="bg-slate-900 text-white px-10 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-red-700 transition-all"
+                  className={`${ACCENT_COLOR} ${ACCENT_HOVER} text-white px-10 py-4 rounded-2xl font-bold flex items-center transition-all transform hover:scale-105 shadow-xl shadow-red-700/20`}
                 >
                   Ponerse en contacto
                 </button>
