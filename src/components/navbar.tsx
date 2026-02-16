@@ -244,9 +244,9 @@ export default function Navbar() {
                               href={item.href}
                               className="flex items-start gap-3 p-3 rounded-lg hover:bg-red-50 transition group"
                             >
-                              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition">
+                              {/*<div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition">
                                 <item.icon size={20} />
-                              </div>
+                              </div>*/}
                               <div>
                                 <div className="font-semibold text-gray-800 group-hover:text-red-600 transition">
                                   {item.nombre}
@@ -359,7 +359,7 @@ export default function Navbar() {
                               className="flex items-center gap-2 px-2 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
-                              <item.icon size={16} className="text-red-500" />
+                              {/*<item.icon size={16} className="text-red-500" />*/}
                               {item.nombre}
                             </Link>
                           ))}
