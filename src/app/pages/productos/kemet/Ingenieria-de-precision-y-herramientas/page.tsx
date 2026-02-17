@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
 import CabeceraSection from "@/components/section/products/cabecera.section";
-import { Info } from "lucide-react";
+import CatalogSection from "@/components/section/products/CatalogSection";
 
 const KEMET_PRODUCTS = [
   {
@@ -19,6 +18,7 @@ const KEMET_PRODUCTS = [
       "Compensación de desgaste",
     ],
     category: "Automatización",
+    fichaTecnica: "https://www.kemet.co.uk/products/deburring",
   },
   {
     id: "soldadura",
@@ -31,6 +31,7 @@ const KEMET_PRODUCTS = [
       "Sistemas de soldadura láser o por arco pulsado especializados en la reparación precisa de superficies dañadas sin afectar la integridad térmica de la pieza.",
     features: ["Bajo aporte de calor", "Precisión quirúrgica", "Fácil manejo"],
     category: "Reparación",
+    fichaTecnica: "https://www.kemet.co.uk/products/toolroom/welding-system",
   },
   {
     id: "pulido-ultrasonico",
@@ -47,6 +48,8 @@ const KEMET_PRODUCTS = [
       "Control digital",
     ],
     category: "Acabado Manual",
+    fichaTecnica:
+      "https://www.kemet.co.uk/products/toolroom/sheenus-zero-ultrasonic-polisher",
   },
   {
     id: "herramientas-nsk",
@@ -59,6 +62,8 @@ const KEMET_PRODUCTS = [
       "Distribución oficial de sistemas NSK Nakanishi, reconocidos mundialmente por su precisión, mínima vibración y altísimas revoluciones por minuto.",
     features: ["Hasta 160,000 RPM", "Diseño ergonómico", "Alta durabilidad"],
     category: "Sistemas Motrices",
+    fichaTecnica:
+      "https://www.kemet.co.uk/products/toolroom/nsk-powered-hand-tools",
   },
   {
     id: "marcado-laser",
@@ -71,6 +76,8 @@ const KEMET_PRODUCTS = [
       "Soluciones de marcado láser para codificación, logotipos y trazabilidad en todo tipo de metales y polímeros industriales.",
     features: ["Grabado indeleble", "Alta velocidad", "Software intuitivo"],
     category: "Identificación",
+    fichaTecnica:
+      "https://www.kemet.co.uk/products/toolroom/laser-marking-machines",
   },
   {
     id: "lapeado-helicoidal",
@@ -83,6 +90,8 @@ const KEMET_PRODUCTS = [
       "Herramientas expansibles y helicoidales diseñadas para lograr tolerancias geométricas extremas en orificios y cilindros.",
     features: ["Control de expansión", "Geometría perfecta", "Larga vida útil"],
     category: "Mecanizado",
+    fichaTecnica:
+      "https://www.kemet.co.uk/products/toolroom/helilap-bore-finishing-tools",
   },
   {
     id: "herramientas-diprofil",
@@ -95,6 +104,7 @@ const KEMET_PRODUCTS = [
       "Sistemas de movimiento alternativo clásicos para el ajuste y pulido de moldes, troqueles y piezas complejas que requieren un toque humano.",
     features: ["Carrera ajustable", "Robustez sueca", "Versatilidad abrasiva"],
     category: "Ajuste Manual",
+    fichaTecnica: "https://www.kemet.co.uk/products/toolroom/diprofil-machine",
   },
   {
     id: "piedras-pulido",
@@ -106,12 +116,11 @@ const KEMET_PRODUCTS = [
       "Selección de piedras de óxido de aluminio y carburo de silicio con diferentes aglutinantes para cada tipo de acero o aplicación industrial.",
     features: ["Grano consistente", "Uso seco o con aceite", "Varios perfiles"],
     category: "Consumibles",
+    fichaTecnica: "https://www.kemet.co.uk/products/toolroom/stones",
   },
 ];
 
 export default function IngenieriaDePrecisionYHerramientas() {
-  const [activeTab, setActiveTab] = useState(KEMET_PRODUCTS[0]);
-
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <CabeceraSection
@@ -121,8 +130,8 @@ export default function IngenieriaDePrecisionYHerramientas() {
         height="h-[480px] md:h-[560px]"
       />
 
-      <main className="max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row gap-16">
-        {/* Sidebar de Categorías (Izquierda) */}
+      <CatalogSection products={KEMET_PRODUCTS} />
+      {/*<main className="max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row gap-16">
         <aside className="lg:w-1/4">
           <div className="sticky top-28">
             <h2 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-8 border-l-4 border-slate-900 pl-4">
@@ -140,9 +149,6 @@ export default function IngenieriaDePrecisionYHerramientas() {
                   }`}
                 >
                   <div className="flex items-center space-x-4">
-                    {/*<div className={`${activeTab.id === product.id ? 'text-blue-600 scale-110' : 'text-slate-400 group-hover:text-slate-600'} transition-transform`}>
-                            {product.icon}
-                          </div>*/}
                     <span
                       className={`text-sm font-semibold ${activeTab.id === product.id ? "translate-x-1" : ""} transition-transform tracking-tight`}
                     >
@@ -155,29 +161,14 @@ export default function IngenieriaDePrecisionYHerramientas() {
                 </button>
               ))}
             </div>
-
-            <div className="mt-12 p-8 bg-slate-50 rounded-3xl border border-slate-100">
-              {/*<h3 className="font-bold text-slate-900 mb-2">
-                Asistencia Kemet
-              </h3>
-              <p className="text-xs text-slate-500 mb-6 leading-relaxed">
-                Expertos en procesos de pulido y lapeado disponibles para
-                consultoría técnica.
-              </p>
-              <button className="w-full py-3 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-900 hover:border-blue-500 transition-all">
-                Contactar Soporte
-              </button>*/}
-            </div>
           </div>
         </aside>
 
-        {/* Área de Detalle (Derecha) */}
         <section className="lg:w-3/4">
           <div className="bg-white min-h-[600px]">
-            {/* Header del Producto Seleccionado */}
             <div className="flex flex-col md:flex-row items-start gap-12 mb-16">
               <div className="w-full md:w-1/2 bg-slate-50 rounded-[40px] aspect-square flex items-center justify-center p-12 relative group overflow-hidden border border-slate-100">
-                {/* Fondo decorativo del icono */}
+
                 <div className="absolute inset-0 bg-blue-500/5 ">
                   <img
                     src={activeTab.image}
@@ -185,12 +176,6 @@ export default function IngenieriaDePrecisionYHerramientas() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                {/*<div className="text-slate-900 transition-transform duration-500 group-hover:scale-110">
-                        {React.cloneElement(activeTab.icon, { className: "w-32 h-32 md:w-48 md:h-48" })}
-                      </div>*/}
-                {/*<div className="absolute top-6 left-6 px-4 py-2 bg-white rounded-full shadow-sm text-[10px] font-bold uppercase tracking-widest text-blue-600">
-                  {activeTab.category}
-                </div>*/}
               </div>
 
               <div className="w-full md:w-1/2 pt-4">
@@ -201,18 +186,10 @@ export default function IngenieriaDePrecisionYHerramientas() {
                   {activeTab.description}
                 </p>
 
-                <div className="space-y-4">
-                  {/*<button className="w-full md:w-auto px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
-                    Añadir al Carrito
-                  </button>
-                  <button className="w-full md:w-auto px-10 py-4 bg-transparent text-slate-900 border-2 border-slate-900 md:ml-4 rounded-full font-bold hover:bg-slate-50 transition-all">
-                    Ver Datos Técnicos
-                  </button>*/}
-                </div>
+                <div className="space-y-4"></div>
               </div>
             </div>
 
-            {/* Información Técnica */}
             <div className="grid md:grid-cols-2 gap-16 py-12 border-t border-slate-100">
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
@@ -243,7 +220,7 @@ export default function IngenieriaDePrecisionYHerramientas() {
             </div>
           </div>
         </section>
-      </main>
+      </main>*/}
     </div>
   );
 }
