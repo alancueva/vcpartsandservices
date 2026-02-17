@@ -1,4 +1,5 @@
 "use client";
+import { IconoWhatsapp } from "@/components/icono-whatsapp";
 import { useState, useEffect } from "react";
 
 const ACCENT_COLOR = "bg-red-700";
@@ -56,6 +57,7 @@ export default function HeroSection() {
                   onClick={handleWhatsAppContact}
                   className={`${ACCENT_COLOR} ${ACCENT_HOVER} text-white px-10 py-4 rounded-2xl font-bold flex items-center transition-all transform hover:scale-105 shadow-xl shadow-red-700/20`}
                 >
+                  <IconoWhatsapp className="inline-block mr-2" />
                   Ponerse en contacto
                 </button>
                 <div className="text-right">
