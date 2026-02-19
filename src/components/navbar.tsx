@@ -114,7 +114,7 @@ export default function Navbar() {
     { nombre: "Nosotros", href: "/pages/nosotros" },
     // { nombre: 'Valores', href: '/pages/valores' },
     { nombre: "Productos", href: "#productos", dropdown: "productos" },
-    { nombre: "Contacto", href: "/pages/contacto" },
+    // { nombre: "Contacto", href: "/pages/contacto" },
     // { nombre: 'Servicios', href: '#servicios', dropdown: 'servicios' },
     // { nombre: "Marcas", href: "/pages/marcas" },
     // { nombre: "Industrias", href: "/pages/industrias" },
@@ -163,14 +163,22 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               {/* Logo */}
-              <div className="relative w-18 h-18 lg:w-25 lg:h-25 flex-shrink-0">
+              <div className="relative w-70 h-70 lg:w-25 lg:h-25 flex-shrink-0">
                 <Image
                   src="/logo.png" // ruta dentro de /public
                   alt="VC Parts and Services - Logo empresa de soluciones industriales en Perú"
                   fill
-                  className="object-contain rounded-lg transition-transform duration-200 group-hover:scale-105"
+                  className="hidden md:block lg:block object-contain rounded-lg transition-transform duration-200 group-hover:scale-105"
                   priority
                   sizes="(max-width: 768px) 72px, 100px"
+                />
+
+                <Image
+                  src="/logo-vertical-vc-ps.png" // ruta dentro de /public
+                  alt="VC Parts and Services - Logo empresa de soluciones industriales en Perú"
+                  fill
+                  className="block md:hidden lg:hidden object-contain rounded-lg transition-transform duration-200 group-hover:scale-105"
+                  priority
                 />
               </div>
 
@@ -211,7 +219,7 @@ export default function Navbar() {
 
                     {/* Mega Menu Dropdown */}
                     {link.dropdown && activeDropdown === link.dropdown && (
-                      <div className="absolute top-full left-0 mt-2 w-screen max-w-4xl -ml-120 bg-white rounded-lg shadow-2xl border border-gray-100 p-6 animate-fadeIn">
+                      <div className="absolute top-full left-0 mt-2 w-screen max-w-4xl -ml-160 bg-white rounded-lg shadow-2xl border border-gray-100 p-6 animate-fadeIn">
                         <div className="grid grid-cols-2 gap-4">
                           {(link.dropdown === "productos"
                             ? productos
@@ -241,13 +249,13 @@ export default function Navbar() {
 
               {/* CTA Buttons */}
               <div className="flex items-center gap-3">
-                {/*<Link
+                <Link
                   href="/pages/contacto"
-                  className="px-6 py-2.5 border border-red-700 text-red-700 rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                  className="px-6 py-2 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                 >
-                  <Mail size={18} className="mr-2" />
-                  Contacto
-                </Link>*/}
+                  {/*<Mail size={18} className="mr-2" />*/}
+                  Contactos
+                </Link>
                 {/*<Link
                   href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
                   className="px-6 py-2.5 border border-blue-700 text-blue-700  rounded-lg font-semibold hover:bg-blue-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
@@ -258,14 +266,14 @@ export default function Navbar() {
                   BROCHURE
                 </Link>*/}
 
-                <a
+                {/*<a
                   href="/brochure/VC-BROCHURE.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-2.5 bg-red-800 text-white text-[11px]  rounded-md font-bold uppercase tracking-[0.2em] hover:bg-red-600 transition-all shadow-sm hover:shadow-md"
                 >
                   Brochure
-                </a>
+                </a>*/}
               </div>
             </div>
 
@@ -347,15 +355,15 @@ export default function Navbar() {
                   );
                 })}
                 <div className="pt-4 space-y-2">
-                  {/*<Link
+                  <Link
                     href="/pages/contacto"
-                    className="px-6 py-2.5 border border-red-700 text-red-700 rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                    className="px-6 py-2.5 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Mail size={18} className="mr-2" />
-                    Contacto
+                    {/*<Mail size={18} className="mr-2" />*/}
+                    Contactos
                   </Link>
-                  <Link
+                  {/*<Link
                     href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
                     className="px-6 py-2.5 border border-blue-700 text-blue-700  rounded-lg font-semibold hover:bg-blue-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 transition flex items-center justify-center"
                     target="_blank" // Abre el enlace en una nueva pestaña
@@ -366,7 +374,7 @@ export default function Navbar() {
                     BROCHURE
                   </Link>*/}
 
-                  <a
+                  {/*<a
                     href="/brochure/VC-BROCHURE.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -374,7 +382,7 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Descargar Brochure
-                  </a>
+                  </a>*/}
                 </div>
               </div>
             </div>
