@@ -25,7 +25,7 @@ export default function HeroSection() {
   };
   return (
     <div className="bg-white font-sans text-slate-900 overflow-hidden">
-      <main className="max-w-[1400px] mx-auto px-12 pt-6 lg:pt-8 pb-10 md:10 lg:10 relative">
+      <main className="max-w-[1600px] mx-auto px-12 pt-6 lg:pt-8 pb-10 md:10 lg:10 relative">
         <div className="grid lg:grid-cols-12 gap-12">
           {/* Columna Izquierda: Texto y Selector */}
           <div
@@ -78,7 +78,7 @@ export default function HeroSection() {
           >
             <div className="relative">
               {/* Imagen Principal */}
-              <div className="bg-slate-100 w-full aspect-[16/16] rounded-tl-[120px] overflow-hidden relative group">
+              <div className="bg-slate-100 w-full aspect-[16/16] md:aspect-[16/14] lg:aspect-[16/12] rounded-tl-[120px] overflow-hidden relative group">
                 <div className="absolute inset-0 bg-slate-200">
                   <img
                     src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop"
