@@ -2,8 +2,8 @@
 import { IconoWhatsapp } from "@/components/icono-whatsapp";
 import { useState, useEffect } from "react";
 
-const ACCENT_COLOR = "bg-red-700";
-const ACCENT_HOVER = "hover:bg-red-800";
+const ACCENT_COLOR = "bg-red-800";
+const ACCENT_HOVER = "hover:bg-red-700";
 const ACCENT_TEXT = "text-red-700";
 
 export default function HeroSection() {
@@ -25,7 +25,7 @@ export default function HeroSection() {
   };
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 overflow-hidden">
-      <main className="max-w-[1400px] mx-auto px-12 pt-6 lg:pt-8 pb-20 relative">
+      <main className="max-w-[1400px] mx-auto px-12 pt-6 lg:pt-8 pb-15 relative">
         <div className="grid lg:grid-cols-12 gap-12">
           {/* Columna Izquierda: Texto y Selector */}
           <div
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </p>
 
             {/* Widget de Búsqueda (Sin Iconos) */}
-            <div className="bg-white p-2  mb-6 max-w-lg">
+            <div className="bg-white mb-4 max-w-lg">
               <div className="flex items-center justify-between">
                 <button
                   onClick={handleWhatsAppContact}
@@ -103,7 +103,7 @@ export default function HeroSection() {
               </div>
 
               {/* Cuadro Informativo Superpuesto (Sin Iconos) */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] rounded-sm border border-slate-100 bg-white shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] overflow-hidden flex lg:w-[70%] lg:left-auto lg:right-0 lg:-bottom-8 lg:translate-x-0">
+              {/*<div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] rounded-sm border border-slate-100 bg-white shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] overflow-hidden flex lg:w-[70%] lg:left-auto lg:right-0 lg:-bottom-8 lg:translate-x-0">
                 <div className="w-1/3 aspect-square bg-slate-900 flex items-center justify-center p-1">
                   <img
                     src="/productos-kemet/images_diamond_diamond-slurries.webp"
@@ -121,7 +121,7 @@ export default function HeroSection() {
                     Tecnología Kemet para rugosidades nanométricas.
                   </p>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>
