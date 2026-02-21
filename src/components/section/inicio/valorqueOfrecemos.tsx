@@ -82,7 +82,7 @@ export default function ValorOfrecemos() {
           {/* Gráfico de Comparativa de Precios */}
           <div className="w-full max-w-md p-2">
             <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-8 text-center">
-              Comparativa de Costo de Repuestos
+              Comparativa de Costo de Productos
             </h4>
 
             <div className="space-y-8">
