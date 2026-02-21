@@ -3,13 +3,43 @@ import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const CLIENT_LOGOS = [
-  { src: "/clientes/bd-instruments.png", alt: "Logo BD Instruments" },
+  { src: "/clientes/BCR.jpg", alt: "Logo bcr" },
   { src: "/clientes/ingemmet.png", alt: "Logo INGEMMET" },
   { src: "/clientes/petroperu.png", alt: "Logo Petroperú" },
+  {
+    src: "/clientes/PUCP-la catolica.png",
+    alt: "Logo Universidad Nacional PUCP",
+  },
+  {
+    src: "/clientes/jorge-basadre.jpg",
+    alt: "Logo Universidad Nacional Jorge Basadre Grohman",
+  },
+  {
+    src: "/clientes/UNAS.png",
+    alt: "Logo Universidad Nacional Agraria de la selva",
+  },
+  {
+    src: "/clientes/UNA-La-Molina.png",
+    alt: "Logo Universidad Nacional Agraria La Molina",
+  },
+  {
+    src: "/clientes/Universidad-Nacional-del-Centro-del-Peru-UNCP.png",
+    alt: "Logo Universidad Nacional del centro del Peru",
+  },
+  {
+    src: "/clientes/UNMSM.png",
+    alt: "Logo Universidad Nacional Mayor de San Marcos",
+  },
+  { src: "/clientes/egemsa.png", alt: "EGEMSA" },
+  {
+    src: "/clientes/gobierno-regional-ancash.png",
+    alt: "Gobierno Regional de Ancash",
+  },
+  { src: "/clientes/cemotech.png", alt: "Logo Cemotech" },
+  { src: "/clientes/bd-instruments.png", alt: "Logo BD Instruments" },
   { src: "/clientes/confipetrol.png", alt: "Logo Confipetrol" },
   { src: "/clientes/proinman.png", alt: "Logo PROINMAN S.A.C." },
   { src: "/clientes/copeinca.png", alt: "Logo Copeinca" },
-  { src: "/clientes/BCR.jpg", alt: "Logo bcr" },
 ];
 
 export default function ClientesCarrusel() {
@@ -22,16 +52,16 @@ export default function ClientesCarrusel() {
     : CLIENT_LOGOS.slice(0, initialCount);
 
   return (
-    <section className="py-16 bg-white overflow-hidden transition-all duration-500">
+    <section className="py-10 bg-white overflow-hidden transition-all duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Título Profesional y Minimalista (Mantenido) */}
         <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight sm:text-4xl mb-4">
           Algunos de{" "}
-          <span className="text-red-600 italic font-serif">
+          <span className="text-red-800 italic font-serif">
             Nuestros Clientes
           </span>
         </h2>
-        <div className="w-12 h-1 bg-red-600 mx-auto mb-12 rounded"></div>
+        <div className="w-12 h-1 bg-red-800 mx-auto mb-12 rounded"></div>
 
         {/* --- Grid de Clientes --- */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center">
@@ -54,7 +84,7 @@ export default function ClientesCarrusel() {
           <div className="mt-12 flex justify-center">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex flex-col items-center gap-2 text-gray-400 hover:text-red-600 transition-colors duration-300 group"
+              className="flex flex-col items-center gap-2 text-gray-400 hover:text-red-800 transition-colors duration-300 group"
             >
               <span className="text-xs uppercase tracking-[0.2em] font-semibold">
                 {isExpanded ? "Ver menos" : "Mostrar más"}
