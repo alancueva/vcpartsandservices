@@ -6,7 +6,7 @@ const KEMET_PRODUCTS = [
   {
     id: "placas-lapeado",
     image:
-      "/productos-kemet/Lapeado-de-diamante-y-precision/superfinishing-polishing.webp",
+      "/productos-kemet/Lapeado-de-diamante-y-precision/lapping-plates-and-kits.jpg",
     title: "Placas de lapeado",
     description:
       "Las placas de lapeado Kemet están diseñadas para ofrecer una estabilidad térmica superior y una planicidad excepcional durante el proceso de rectificado.",
