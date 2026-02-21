@@ -85,14 +85,14 @@ export default function Navbar() {
       href: "/pages/productos/kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas",
     },
     {
-      nombre: "Limpieza, tratamientos de superficies y NDT",
-      descripcion: "Limpieza, tratamientos de superficies y NDT",
-      href: "/pages/productos/kemet/Limpieza-tratamientos-de-superficies-y-NDT",
-    },
-    {
       nombre: "Ingeniería de precisión y herramientas",
       descripcion: "Ingeniería de precisión y herramientas",
       href: "/pages/productos/kemet/Ingenieria-de-precision-y-herramientas",
+    },
+    {
+      nombre: "Limpieza por Ultrasonidos",
+      descripcion: "Limpieza por Ultrasonidos",
+      href: "/pages/productos/kemet/Limpieza-tratamientos-de-superficies-y-NDT",
     },
   ];
 
@@ -122,11 +122,34 @@ export default function Navbar() {
     // { nombre: 'Clientes', href: '#clientes' }
   ];
 
+  const certifications = [
+    {
+      id: 1,
+      label: "ISO 9001",
+      imgUrl: "/certificacion-iso/iso-9001.jpeg",
+    },
+    {
+      id: 2,
+      label: "ISO 14001",
+      imgUrl: "/certificacion-iso/iso-14001.jpeg",
+    },
+    {
+      id: 3,
+      label: "ISO 37001",
+      imgUrl: "/certificacion-iso/iso-37001.jpeg",
+    },
+    {
+      id: 4,
+      label: "ISO 45001",
+      imgUrl: "/certificacion-iso/iso-45001.jpeg",
+    },
+  ];
+
   return (
     <>
-      <div className="hidden md:block bg-red-800 text-white py-2 px-4 text-sm">
+      <div className="hidden md:block bg-red-800 text-white py-2 px-2 text-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex gap-8">
+          <div className="flex items-center gap-2">
             <a
               href="tel:+51960785273"
               className="flex items-center gap-2 hover:text-red-100 transition-colors duration-200"
@@ -134,6 +157,7 @@ export default function Navbar() {
               <Phone size={16} />
               <span className="hidden sm:inline">+51 960 785 273</span>
             </a>
+            <div className="h-4 w-[1px] bg-white mx-0.5"></div>
             <a
               href="mailto:info@vcpartsandservices.com"
               className="flex items-center gap-2 hover:text-red-100 transition-colors duration-200"
@@ -145,8 +169,38 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="hidden md:block text-[10px] uppercase tracking-widest">
+          {/*<div className="hidden md:block text-[10px] uppercase tracking-widest">
             Expertos en Productos Kemet
+          </div>*/}
+
+          <div className="flex items-center gap-5">
+            {/* Certificaciones como imágenes cortas y pequeñas */}
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-white uppercase tracking-tight font-semibold">
+                Certificaciones:
+              </span>
+              <div className="flex gap-1.5">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.id}
+                    className="bg-white/90 p-1 rounded-sm hover:bg-white transition-colors cursor-pointer flex items-center justify-center overflow-hidden"
+                    title={cert.label}
+                  >
+                    <img
+                      src={cert.imgUrl}
+                      alt={cert.label}
+                      className="h-8 w-auto object-contain block transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="h-4 w-[1px] bg-red-700/60"></div>
+
+            <div className="text-[10px] font-bold uppercase tracking-widest text-white">
+              Expertos en Productos Kemet
+            </div>
           </div>
         </div>
       </div>
@@ -203,7 +257,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition flex items-center gap-1 group"
+                      className="px-4 py-2 text-gray-700 hover:text-red-700 font-medium transition flex items-center gap-1 group"
                     >
                       {link.nombre}
                       {link.dropdown && (
@@ -214,7 +268,7 @@ export default function Navbar() {
                           }`}
                         />
                       )}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300"></span>
                     </Link>
 
                     {/* Mega Menu Dropdown */}
@@ -234,7 +288,7 @@ export default function Navbar() {
                                 <item.icon size={20} />
                               </div>*/}
                               <div>
-                                <div className="font-semibold text-gray-800 group-hover:text-red-600 transition">
+                                <div className="font-semibold text-gray-800 group-hover:text-red-800 transition">
                                   {item.nombre}
                                 </div>
                               </div>
@@ -251,10 +305,10 @@ export default function Navbar() {
               <div className="flex items-center gap-3">
                 <Link
                   href="/pages/contacto"
-                  className="px-6 py-2 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                  className="px-6 py-2 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                 >
                   {/*<Mail size={18} className="mr-2" />*/}
-                  Contactos
+                  Contáctanos
                 </Link>
                 {/*<Link
                   href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
@@ -317,7 +371,7 @@ export default function Navbar() {
                             size={18}
                             className={`transform transition-transform duration-200 ${
                               isDropdownOpen
-                                ? "rotate-180 text-red-600"
+                                ? "rotate-180 text-red-800"
                                 : "text-gray-500"
                             }`}
                           />
@@ -326,7 +380,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="w-full block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg font-medium transition"
+                          className="w-full block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-800 rounded-lg font-medium transition"
                         >
                           {link.nombre}
                         </Link>
@@ -357,11 +411,11 @@ export default function Navbar() {
                 <div className="pt-4 space-y-2">
                   <Link
                     href="/pages/contacto"
-                    className="px-6 py-2.5 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-600 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
+                    className="px-6 py-2.5 bg-red-800 text-white rounded-lg font-semibold transition hover:bg-red-700 hover:text-white hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {/*<Mail size={18} className="mr-2" />*/}
-                    Contactos
+                    Contáctanos
                   </Link>
                   {/*<Link
                     href="/brochure/VC-BROCHURE.pdf" // Ruta al archivo PDF en la carpeta public
