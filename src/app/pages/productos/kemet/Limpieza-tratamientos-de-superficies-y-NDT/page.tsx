@@ -39,24 +39,24 @@ const KEMET_PRODUCTS = [
     fichaTecnica:
       "https://www.kemet.co.uk/blog/cleaning/vapour-degreasing-alternative",
   },
-  {
-    id: "liquidos-penetrantes",
-    image:
-      "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/fluorescent-penetrant-inspection-fpi.webp",
-    title: "Prueba de líquidos penetrantes",
-    description:
-      "Ensayos no destructivos (NDT) para detectar discontinuidades superficiales.",
-    longDescription:
-      "Línea completa de tintes penetrantes, reveladores y limpiadores diseñados para revelar grietas y porosidad en materiales no porosos.",
-    features: [
-      "Alta sensibilidad",
-      "Fácil interpretación",
-      "Cumple normas aeroespaciales",
-    ],
-    category: "NDT",
-    fichaTecnica:
-      "https://www.kemet.co.uk/products/cleaning/fluorescent-penetrant-inspection",
-  },
+  // {
+  //   id: "liquidos-penetrantes",
+  //   image:
+  //     "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/fluorescent-penetrant-inspection-fpi.webp",
+  //   title: "Prueba de líquidos penetrantes",
+  //   description:
+  //     "Ensayos no destructivos (NDT) para detectar discontinuidades superficiales.",
+  //   longDescription:
+  //     "Línea completa de tintes penetrantes, reveladores y limpiadores diseñados para revelar grietas y porosidad en materiales no porosos.",
+  //   features: [
+  //     "Alta sensibilidad",
+  //     "Fácil interpretación",
+  //     "Cumple normas aeroespaciales",
+  //   ],
+  //   category: "NDT",
+  //   fichaTecnica:
+  //     "https://www.kemet.co.uk/products/cleaning/fluorescent-penetrant-inspection",
+  // },
   {
     id: "limpieza-ultrasonica",
     image:
@@ -74,41 +74,41 @@ const KEMET_PRODUCTS = [
     category: "Sistemas de Lavado",
     fichaTecnica: "https://www.kemet.co.uk/products/cleaning",
   },
-  {
-    id: "lavadoras-aspersion",
-    image:
-      "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/spray-washer.webp",
-    title: "Lavadoras por aspersión",
-    description:
-      "Sistemas de lavado acuoso automático mediante chorros a presión.",
-    longDescription:
-      "Máquinas de lavado por spray diseñadas para piezas voluminosas o grandes lotes de producción, utilizando detergentes biodegradables a base de agua.",
-    features: [
-      "Alta productividad",
-      "Proceso automático",
-      "Ecológicamente seguro",
-    ],
-    category: "Sistemas de Lavado",
-    fichaTecnica: "https://www.kemet.co.uk/products/cleaning/spray-washers",
-  },
-  {
-    id: "pasivacion",
-    image:
-      "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/cleaning-mechanical-precision-parts.webp",
-    title: "Pasivación",
-    description:
-      "Tratamientos químicos para aumentar la resistencia a la corrosión del acero inoxidable.",
-    longDescription:
-      "Procesos diseñados para eliminar el hierro libre de la superficie y formar una capa de óxido protectora, garantizando la longevidad de las piezas metálicas.",
-    features: [
-      "Mejora de vida útil",
-      "Acabado uniforme",
-      "Cumple norma ASTM A967",
-    ],
-    category: "Tratamiento de Superficies",
-    fichaTecnica:
-      "https://www.kemet.co.uk/products/cleaning/passivation-ultrasonic-cleaner-automatic-line",
-  },
+  // {
+  //   id: "lavadoras-aspersion",
+  //   image:
+  //     "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/spray-washer.webp",
+  //   title: "Lavadoras por aspersión",
+  //   description:
+  //     "Sistemas de lavado acuoso automático mediante chorros a presión.",
+  //   longDescription:
+  //     "Máquinas de lavado por spray diseñadas para piezas voluminosas o grandes lotes de producción, utilizando detergentes biodegradables a base de agua.",
+  //   features: [
+  //     "Alta productividad",
+  //     "Proceso automático",
+  //     "Ecológicamente seguro",
+  //   ],
+  //   category: "Sistemas de Lavado",
+  //   fichaTecnica: "https://www.kemet.co.uk/products/cleaning/spray-washers",
+  // },
+  // // {
+  //   id: "pasivacion",
+  //   image:
+  //     "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/cleaning-mechanical-precision-parts.webp",
+  //   title: "Pasivación",
+  //   description:
+  //     "Tratamientos químicos para aumentar la resistencia a la corrosión del acero inoxidable.",
+  //   longDescription:
+  //     "Procesos diseñados para eliminar el hierro libre de la superficie y formar una capa de óxido protectora, garantizando la longevidad de las piezas metálicas.",
+  //   features: [
+  //     "Mejora de vida útil",
+  //     "Acabado uniforme",
+  //     "Cumple norma ASTM A967",
+  //   ],
+  //   category: "Tratamiento de Superficies",
+  //   fichaTecnica:
+  //     "https://www.kemet.co.uk/products/cleaning/passivation-ultrasonic-cleaner-automatic-line",
+  // },
 ];
 
 export default function IngenieriaDePrecisionYHerramientas() {
