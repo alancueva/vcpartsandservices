@@ -5,9 +5,9 @@ import TextAreaField from "@/components/ux/textarea";
 import InputField from "@/components/ux/Input";
 
 // Colores basados en el esquema corporativo (vinotinto/rojo oscuro)
-const ACCENT_COLOR = "bg-red-700";
-const ACCENT_TEXT = "text-red-700";
-const HOVER_COLOR = "hover:bg-red-800";
+const ACCENT_COLOR = "bg-red-800";
+const ACCENT_TEXT = "text-red-800";
+const HOVER_COLOR = "hover:bg-red-700";
 
 interface FormData {
   name: string;
@@ -227,8 +227,8 @@ export default function Contacto() {
   );
 
   return (
-    <section className="py-20 md:py-32 bg-gray-50 font-sans min-h-screen flex items-center justify-center">
-      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-14 bg-gray-50 font-sans min-h-screen flex items-center justify-center">
+      <div className="max-w-7xl w-full mx-auto px-3 sm:px-5 lg:px-7 -mt-5">
         {/* TÍTULO PRINCIPAL */}
         <header className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -244,7 +244,7 @@ export default function Contacto() {
         </header>
 
         {/* CONTENIDO (2 Columnas: Info + Formulario) */}
-        <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xs overflow-hidden">
           {/* COLUMNA IZQUIERDA: INFORMACIÓN DE CONTACTO (Sólida y profesional) */}
           <div
             className={`lg:w-1/3 p-8 md:p-12 ${ACCENT_COLOR} text-white flex flex-col justify-between`}
