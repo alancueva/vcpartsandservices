@@ -14,10 +14,10 @@ const QUALITY_STATEMENT =
 
 export default function QuienesSomos() {
   return (
-    <section className="py-18 md:py-28 bg-gray-50 font-sans overflow-hidden">
+    <section className="py-4 md:py-8  bg-gray-50 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
         {/* TÍTULO PRINCIPAL */}
-        <header className="text-center mb-16">
+        <header className="text-center mb-10 mt-2">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
             Quiénes
             <span className={` ${FONT_SERIF_ITALIC} ${ACCENT_TEXT} ml-2`}>
