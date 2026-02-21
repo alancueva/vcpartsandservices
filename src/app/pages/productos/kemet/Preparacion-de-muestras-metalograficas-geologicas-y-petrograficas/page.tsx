@@ -38,11 +38,11 @@ const KEMET_PRODUCTS = [
     fichaTenica: "https://www.kemet.co.uk/products/metallography/mounting",
   },
   {
-    id: "molienda",
+    id: "desbaste",
     image:
       "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/Metallographic-grinding.webp",
-    title: "Molienda",
-    description: "Papeles abrasivos y discos de molienda de alta durabilidad.",
+    title: "Desbaste",
+    description: "Papeles abrasivos y discos de Desbaste de alta durabilidad.",
     longDescription:
       "Gama completa de discos abrasivos de Carburo de Silicio y sistemas de diamante para una nivelación de superficie rápida y uniforme.",
     features: [
@@ -70,10 +70,10 @@ const KEMET_PRODUCTS = [
     fichaTecnica: "https://www.kemet.co.uk/products/metallography/polishing",
   },
   {
-    id: "replicacion",
+    id: "replicas-metalograficas",
     image:
       "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/metallurgical-replication-field-metallographic.webp",
-    title: "Replicación",
+    title: "Replicas Metalográficas",
     description: "Técnicas de réplica no destructivas para inspección in situ.",
     longDescription:
       "Materiales de réplica de alta resolución para capturar la topografía de superficies grandes que no pueden ser llevadas al laboratorio.",

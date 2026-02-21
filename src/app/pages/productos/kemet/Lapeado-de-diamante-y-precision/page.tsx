@@ -61,14 +61,14 @@ const KEMET_PRODUCTS = [
       "https://www.kemet.co.uk/products/metallography/diamond-suspension-for-metallography",
   },
   {
-    id: "lodo-diamante",
+    id: "diamante-liquido",
     image:
       "/productos-kemet/Lapeado-de-diamante-y-precision/0022700_00_02_00Still001.webp",
-    title: "Lodo de diamante",
+    title: "Diamante líquido ",
     description:
       "Mezclas abrasivas de alta densidad para aplicaciones de gran volumen y desbaste pesado.",
     longDescription:
-      "El lodo de diamante (Slurry) está diseñado para procesos donde la tasa de remoción de material es crítica. Ofrece un equilibrio perfecto entre agresividad de corte y calidad de acabado.",
+      "El Diamante líquido (Slurry) está diseñado para procesos donde la tasa de remoción de material es crítica. Ofrece un equilibrio perfecto entre agresividad de corte y calidad de acabado.",
     features: [
       "Máxima tasa de remoción",
       "Consistencia de lote a lote",
