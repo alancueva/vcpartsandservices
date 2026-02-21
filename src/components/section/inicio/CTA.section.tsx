@@ -1,9 +1,9 @@
 import React from "react";
 import { Mail, Phone, ArrowRight, MessageSquare, FileText } from "lucide-react";
 
-const ACCENT_COLOR = "bg-red-700";
-const ACCENT_HOVER = "hover:bg-red-800";
-const ACCENT_TEXT = "text-red-700";
+const ACCENT_COLOR = "bg-red-800";
+const ACCENT_HOVER = "hover:bg-red-700";
+const ACCENT_TEXT = "text-red-800";
 
 export default function CTASection() {
   const whatsappMessage = encodeURIComponent(
@@ -12,7 +12,7 @@ export default function CTASection() {
   const whatsappUrl = `https://wa.me/51960785273?text=${whatsappMessage}`;
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-15 bg-white overflow-hidden">
       {/* Elementos decorativos sutiles sobre fondo blanco */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-50 rounded-full blur-3xl opacity-50"></div>
