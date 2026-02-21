@@ -77,9 +77,9 @@ interface ValueBlockProps {
 const ValueBlock: React.FC<ValueBlockProps> = ({ value }) => {
   const Icon = value.icon;
   return (
-    <div className="flex items-start space-x-4 group">
+    <div className="flex items-center space-x-4 group">
       <div
-        className={`mt-1 p-2 rounded-lg ${ACCENT_COLOR} bg-opacity-5 group-hover:bg-opacity-10 transition-colors`}
+        className={`p-2 rounded-lg ${ACCENT_COLOR} bg-opacity-5 group-hover:bg-opacity-10 transition-colors`}
       >
         <Icon className={`w-6 h-6 text-white`} />
       </div>
@@ -213,7 +213,7 @@ export default function AboutUsSection() {
   return (
     <section className="py-5 md:py-5  bg-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-20">
           {/* TÍTULO PRINCIPAL */}
 
           <div className="lg:col-span-7">
@@ -315,7 +315,7 @@ export default function AboutUsSection() {
                         />
                       </div>
                     </div>
-                    <p className="text-xs font-bold text-gray-800 mb-1">
+                    <p className="text-xs font-bold text-gray-800">
                       {iso.title}
                     </p>
                     {/*<p className="text-[9px] text-slate-500 uppercase tracking-widest">
@@ -331,7 +331,7 @@ export default function AboutUsSection() {
           </div>
         </div>
 
-        <div className="text-center pt-12">
+        <div className="text-center pt-2">
           <h3 className=" text-xl font-bold text-gray-900 mb-8 border-b-2 border-red-100 inline-block pb-2">
             Nuestros Valores Fundamentales
           </h3>
