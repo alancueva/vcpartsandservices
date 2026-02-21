@@ -211,9 +211,9 @@ export default function AboutUsSection() {
   };
 
   return (
-    <section className="py-5 md:py-5  bg-white font-sans overflow-hidden">
+    <section className="py-0 md:py-5 lg:py-5  bg-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-10 md:mb-10 lg:mb-10">
           {/* TÍTULO PRINCIPAL */}
 
           <div className="lg:col-span-7">

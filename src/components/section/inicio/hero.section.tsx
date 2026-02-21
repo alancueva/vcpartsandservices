@@ -24,8 +24,8 @@ export default function HeroSection() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 overflow-hidden">
-      <main className="max-w-[1400px] mx-auto px-12 pt-6 lg:pt-8 pb-15 relative">
+    <div className="bg-white font-sans text-slate-900 overflow-hidden">
+      <main className="max-w-[1400px] mx-auto px-12 pt-6 lg:pt-8 pb-10 md:10 lg:10 relative">
         <div className="grid lg:grid-cols-12 gap-12">
           {/* Columna Izquierda: Texto y Selector */}
           <div
@@ -70,19 +70,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-
-            {/* Enlaces Sociales (Solo Texto) */}
-            <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">
-              {/*<a href="#" className="hover:text-slate-900 transition-colors">
-                FB
-              </a>
-              <a href="#" className="hover:text-slate-900 transition-colors">
-                TW
-              </a>
-              <a href="#" className="hover:text-slate-900 transition-colors">
-                LN
-              </a>*/}
-            </div>
           </div>
 
           {/* Columna Derecha: Visual */}
@@ -91,7 +78,7 @@ export default function HeroSection() {
           >
             <div className="relative">
               {/* Imagen Principal */}
-              <div className="bg-slate-100 w-full aspect-[16/11] rounded-tl-[120px] overflow-hidden relative group">
+              <div className="bg-slate-100 w-full aspect-[16/16] rounded-tl-[120px] overflow-hidden relative group">
                 <div className="absolute inset-0 bg-slate-200">
                   <img
                     src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop"

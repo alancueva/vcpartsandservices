@@ -8,7 +8,7 @@ export default function ValorOfrecemos() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col bg-white overflow-hidden">
+    <section className="flex flex-col bg-white overflow-hidden">
       <div className="pt-8 pb-6 text-center bg-white z-10">
         <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl mb-2">
           <span className="text-gray-900">Qué</span>{" "}

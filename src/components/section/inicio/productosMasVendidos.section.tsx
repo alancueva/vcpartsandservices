@@ -7,7 +7,7 @@ import {
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
-import { MouseEvent, useRef, useState, WheelEvent } from "react";
+import { MouseEvent, useEffect, useRef, useState, WheelEvent } from "react";
 
 const ACCENT_COLOR = "bg-red-800";
 const ACCENT_TEXT = "text-red-800";
@@ -204,7 +204,10 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenImage }) => (
   <div className="min-w-[85vw] md:min-w-0 bg-white rounded-2xl shadow-1xs border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-2xl group flex flex-col h-full">
     <div className="relative h-64 overflow-hidden">
-      <div className="relative aspect-[4/3] w-full h-full overflow-hidden bg-gray-50">
+      <div
+        className="relative aspect-[4/3] w-full h-full overflow-hidden bg-gray-50"
+        onClick={() => onOpenImage(product.imageUrl)}
+      >
         <img
           src={product.imageUrl}
           alt={product.title}
@@ -212,7 +215,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenImage }) => (
           loading="lazy"
         />
         <button
-          onClick={() => onOpenImage(product.imageUrl)}
+          // onClick={() => onOpenImage(product.imageUrl)}
           className="absolute bottom-4 right-4 z-20 p-2.5 bg-white/80 hover:bg-white backdrop-blur-sm rounded-lg shadow-sm border border-black/5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
           title="Ver en pantalla completa"
         >
@@ -248,15 +251,40 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenImage }) => (
 
 export default function ProductosMasVendidosSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
+      checkScroll();
+      return () => {
+        el.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
+      };
+    }
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.8;
       const scrollTo =
         direction === "left"
-          ? scrollLeft - clientWidth
-          : scrollLeft + clientWidth;
+          ? scrollRef.current.scrollLeft - scrollAmount
+          : scrollRef.current.scrollLeft + scrollAmount;
+
       scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };
@@ -286,14 +314,20 @@ export default function ProductosMasVendidosSection() {
         <div className="relative group">
           <button
             onClick={() => scroll("left")}
-            className="block md:flex lg:hidden absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-xl rounded-full p-4 text-gray-800 hover:scale-110 transition-transform border border-gray-100"
+            disabled={!canScrollLeft}
+            className={`block md:flex lg:hidden absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-xl rounded-full p-4 text-gray-800 hover:scale-110 transition-transform border border-gray-100
+            ${canScrollLeft ? "opacity-100 hover:scale-110" : "opacity-30 cursor-not-allowed scale-90"}
+            `}
           >
             <ChevronLeft size={24} />
           </button>
 
           <button
             onClick={() => scroll("right")}
-            className="block md:flex lg:hidden absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-xl rounded-full p-4 text-gray-800 hover:scale-110 transition-transform border border-gray-100"
+            disabled={!canScrollRight}
+            className={`block md:flex lg:hidden absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white shadow-xl rounded-full p-4 text-gray-800 hover:scale-110 transition-transform border border-gray-100
+            ${canScrollRight ? "opacity-100 hover:scale-110" : "opacity-30 cursor-not-allowed scale-90"}
+            `}
           >
             <ChevronRight size={24} />
           </button>
