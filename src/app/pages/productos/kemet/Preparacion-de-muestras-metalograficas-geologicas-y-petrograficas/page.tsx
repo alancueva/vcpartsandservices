@@ -1,6 +1,70 @@
-"use client";
+import { Metadata } from "next";
 import CabeceraSection from "@/components/section/products/cabecera.section";
 import CatalogSection from "@/components/section/products/CatalogSection";
+
+export const metadata: Metadata = {
+  title:
+    "Preparación de Muestras Metalográficas, Geológicas y Petrográficas | VC Parts and Services",
+  description:
+    "Equipos y consumibles KEMET para corte, montaje, desbaste, pulido, réplicas, petrografía, espectroscopia, dureza y microscopía. Soluciones de alta precisión para análisis metalúrgico, geológico y de materiales.",
+  keywords: [
+    "KEMET",
+    "preparación metalográfica",
+    "preparación de muestras",
+    "equipos metalografía",
+    "corte metalográfico",
+    "pulido metalográfico",
+    "petrografía",
+    "espectroscopia OES",
+    "prueba de dureza",
+    "microscopios metalográficos",
+    "VC Parts and Services",
+  ],
+  openGraph: {
+    title:
+      "Preparación de Muestras Metalográficas y Petrográficas | VC Parts and Services",
+    description:
+      "Sistemas especializados KEMET para preparación de muestras metalográficas, geológicas y petrográficas: corte de precisión, montaje, pulido espejo, secciones delgadas y más.",
+    url: "https://www.vcpartsandservices.com/pages/productos/kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas",
+    siteName: "VC Parts and Services",
+    images: [
+      {
+        url: "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/Metallographic-cutting.webp",
+        width: 1200,
+        height: 630,
+        alt: "Máquina de corte metalográfico de precisión KEMET",
+      },
+      {
+        url: "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/Metallographic-polishing.webp",
+        width: 1200,
+        height: 630,
+        alt: "Proceso de pulido para acabado espejo en metalografía",
+      },
+      {
+        url: "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/thin-section-polishing.webp",
+        width: 1200,
+        height: 630,
+        alt: "Preparación de secciones delgadas petrográficas KEMET",
+      },
+    ],
+    locale: "es_ES", // o "es" si prefieres más genérico
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Preparación Metalográfica y Petrográfica KEMET | VC Parts and Services",
+    description:
+      "Descubre la gama completa de equipos KEMET para análisis de microestructura, dureza y composición química en materiales metálicos, rocas y minerales.",
+    images: [
+      "/productos-kemet/Preparacion-de-muestras-metalograficas-geologicas-y-petrograficas/Metallographic-cutting.webp",
+    ],
+  },
+  alternates: {
+    canonical:
+      "https://www.vcpartsandservices.com/pages/productos/kemet/preparacion-muestras-metalograficas-geologicas-petrograficas",
+  },
+};
 
 const KEMET_PRODUCTS = [
   {
