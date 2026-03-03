@@ -1,14 +1,52 @@
+"use client";
 import { Truck, BarChart3, TrendingDown, CheckCircle2 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ValorOfrecemos() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const comparativaPrecios = [
     { nombre: "Competidor A", precio: 95, color: "bg-gray-400" },
     { nombre: "Competidor B", precio: 88, color: "bg-gray-300" },
-    { nombre: "VC PARTS AND SERVICES", precio: 65, color: "bg-red-800" },
+    {
+      nombre: "VC PARTS AND SERVICES",
+      precio: 65,
+      color: "bg-red-800",
+      destacado: true,
+    },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <section className="flex flex-col bg-white overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="flex flex-col bg-white overflow-hidden"
+    >
       <div className="pt-8 pb-6 text-center bg-white z-10">
         <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl mb-2">
           <span className="text-gray-900">Qué</span>{" "}
@@ -16,7 +54,9 @@ export default function ValorOfrecemos() {
             Valor Ofrecemos
           </span>
         </h2>
-        <div className="w-16 h-1 bg-red-800 mx-auto rounded"></div>
+        <div
+          className={`w-16 h-1 bg-red-800 mx-auto rounded transition-all duration-1000 ${isVisible ? "w-16" : "w-0"}`}
+        ></div>
       </div>
 
       <div className="flex-grow flex flex-col lg:flex-row">
@@ -87,26 +127,32 @@ export default function ValorOfrecemos() {
 
             <div className="space-y-8">
               {comparativaPrecios.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
+                <div key={index} className="space-y-3">
+                  <div className="flex justify-between items-end text-sm">
                     <span
-                      className={
-                        item.precio < 70
-                          ? "text-red-800 font-bold"
-                          : "text-gray-600"
-                      }
+                      className={`font-semibold ${item.destacado ? "text-red-800" : "text-gray-600"}`}
                     >
                       {item.nombre}
                     </span>
-                    <span className="text-gray-500">
-                      {item.precio}% del mercado
+                    <span className="text-gray-400 font-mono">
+                      {isVisible ? item.precio : 0}%
                     </span>
                   </div>
-                  <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+
+                  {/* Contenedor de la barra */}
+                  <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden shadow-inner">
                     <div
-                      className={`h-full ${item.color} transition-all duration-1000 ease-out`}
-                      style={{ width: `${item.precio}%` }}
-                    ></div>
+                      className={`h-full ${item.color} transition-all ease-out`}
+                      style={{
+                        width: isVisible ? `${item.precio}%` : "0%",
+                        transitionDuration: "1.8s",
+                        transitionDelay: `${index * 200}ms`,
+                      }}
+                    >
+                      {item.destacado && (
+                        <div className="w-full h-full bg-white/20 animate-pulse"></div>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
