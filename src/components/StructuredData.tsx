@@ -1,12 +1,14 @@
 import Script from "next/script";
 
+const BASE_URL = "https://www.vcpartsandservices.com";
+
 export default function StructuredData() {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "VC Parts and Services",
-    "url": "https://www.vcpartsandservices.com",
-    "logo": "https://www.vcpartsandservices.com/logo.png",
+    "url": BASE_URL,
+    "logo": `${BASE_URL}/logo.png`,
     "description": "Empresa peruana especializada en mantenimiento de equipos industriales y suministro de repuestos mecánicos y eléctricos.",
     "address": {
       "@type": "PostalAddress",
@@ -67,17 +69,17 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "VC Parts and Services",
-    "url": "https://www.vcpartsandservices.com",
+    "url": BASE_URL,
     "description": "Especialistas en mantenimiento de equipos industriales y suministro de repuestos mecánicos y eléctricos en Perú.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.vcpartsandservices.com/search?q={search_term_string}",
+      "target": `${BASE_URL}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string"
     },
     "publisher": {
       "@type": "Organization",
       "name": "VC Parts and Services",
-      "url": "https://www.vcpartsandservices.com"
+      "url": BASE_URL
     }
   };
 
@@ -85,8 +87,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "VC Parts and Services",
-    "image": "https://www.vcpartsandservices.com/logo.png",
-    "url": "https://www.vcpartsandservices.com",
+    "image": `${BASE_URL}/logo.png`,
+    "url": BASE_URL,
     "telephone": "+51 960 785 273",
     "email": "info@vcpartsandservices.com",
     "address": {
@@ -104,12 +106,58 @@ export default function StructuredData() {
     },
     "openingHours": "Mo-Fr 08:00-18:00",
     "priceRange": "$$",
-    "servesCuisine": ["Industrial Services"],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "reviewCount": "45"
     }
+  };
+
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué servicios ofrece VC Parts and Services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ofrecemos mantenimiento de equipos industriales, suministro de repuestos mecánicos y eléctricos, limpieza por ultrasonido, lapeado de precisión, y más."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Dónde está ubicada la empresa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estamos ubicados en Urb. San Rafael J4-16, Nuevo Chimbote, Ancash, Perú."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipos de repuestos ofrecen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Suministramos repuestos para motores diésel, generadores, compresores, bombas, separadores de aceite, intercambiadores de calor, turbocompresores y más."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con todas las marcas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trabajamos con las principales marcasOEM europeas y mondiale, incluyendo equipos especializados de las mejores fábricas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el área de cobertura?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Atendemos en todo el Perú, con especial enfoque en la región de Ancash y la zona norte del país."
+        }
+      }
+    ]
   };
 
   return (
@@ -133,6 +181,13 @@ export default function StructuredData() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(localBusinessData),
+        }}
+      />
+      <Script
+        id="structured-data-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqData),
         }}
       />
     </>
