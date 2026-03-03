@@ -1,6 +1,34 @@
-"use client";
+import { Metadata } from "next";
 import CabeceraSection from "@/components/section/products/cabecera.section";
 import CatalogSection from "@/components/section/products/CatalogSection";
+
+export const metadata: Metadata = {
+  title: "Limpieza y Tratamientos de Superficies | Productos KEMET",
+  description: "Sistemas de limpieza industrial: limpieza con disolventes al vacío, limpieza ultrasónica, tratamientos de superficie y NDT.",
+  keywords: [
+    "limpieza industrial",
+    "tratamientos superficie",
+    "NDT",
+    "limpieza vacío",
+    "limpieza ultrasónica",
+    "disolventes",
+    "Kemet",
+    "VC Parts and Services"
+  ],
+  openGraph: {
+    title: "Limpieza y Tratamientos | VC Parts and Services",
+    description: "Sistemas de limpieza industrial y tratamientos de superficie KEMET.",
+    url: "https://www.vcpartsandservices.com/pages/productos/kemet/limpieza-tratamientos-de-superficies-y-ndt",
+    images: [
+      {
+        url: "/productos-kemet/Limpieza-tratamientos-de-superficies-y-NDT/Single-Chamber-Cleaning.webp",
+        width: 1200,
+        height: 630,
+        alt: "Limpieza y tratamientos de superficies",
+      },
+    ],
+  },
+};
 
 const KEMET_PRODUCTS = [
   {

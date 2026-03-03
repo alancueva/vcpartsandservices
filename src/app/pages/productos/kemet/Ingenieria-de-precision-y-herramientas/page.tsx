@@ -1,6 +1,36 @@
-"use client";
+import { Metadata } from "next";
 import CabeceraSection from "@/components/section/products/cabecera.section";
 import CatalogSection from "@/components/section/products/CatalogSection";
+
+export const metadata: Metadata = {
+  title: "Ingeniería de Precisión y Herramientas | Productos KEMET",
+  description: "Herramientas de precisión y sistemas de ingeniería para acabados de alta exigencia. Desbarbado CNC, soldadura, pulido ultrasónico, herramientas NSK y más.",
+  keywords: [
+    "ingeniería precisión",
+    "herramientas precisión",
+    "desbarbado CNC",
+    "soldadura micro",
+    "pulido ultrasónico",
+    "herramientas NSK",
+    "marcado láser",
+    "lapeado helicoidal",
+    "Kemet",
+    "VC Parts and Services"
+  ],
+  openGraph: {
+    title: "Ingeniería de Precisión | VC Parts and Services",
+    description: "Herramientas de precisión y sistemas de ingeniería KEMET.",
+    url: "https://www.vcpartsandservices.com/pages/productos/kemet/ingenieria-de-precision-y-herramientas",
+    images: [
+      {
+        url: "/productos-kemet/Ingenieria-de-precision-y-herramientas/cnc-deburring-wheels-after-milling.webp",
+        width: 1200,
+        height: 630,
+        alt: "Ingeniería de precisión y herramientas",
+      },
+    ],
+  },
+};
 
 const KEMET_PRODUCTS = [
   {

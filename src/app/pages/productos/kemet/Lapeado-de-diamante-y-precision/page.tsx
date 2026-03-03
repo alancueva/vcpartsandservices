@@ -1,6 +1,34 @@
-"use client";
+import { Metadata } from "next";
 import CabeceraSection from "@/components/section/products/cabecera.section";
 import CatalogSection from "@/components/section/products/CatalogSection";
+
+export const metadata: Metadata = {
+  title: "Lapeado de Diamante y Precisión | Productos KEMET",
+  description: "Placas de lapeado, compuestos de diamante, suspensiones y máquinas lapeadoras KEMET. Soluciones avanzadas en diamante para la industria.",
+  keywords: [
+    "lapeado diamante",
+    "placas lapeado",
+    "compuestos diamante",
+    "suspensión diamante",
+    "máquinas lapeadoras",
+    "fluidos lubricantes",
+    "Kemet",
+    "VC Parts and Services"
+  ],
+  openGraph: {
+    title: "Lapeado de Diamante | VC Parts and Services",
+    description: "Productos KEMET para lapeado de diamante y precisión industrial.",
+    url: "https://www.vcpartsandservices.com/pages/productos/kemet/lapeado-de-diamante-y-precision",
+    images: [
+      {
+        url: "/productos-kemet/Lapeado-de-diamante-y-precision/lapping-plates-and-kits.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lapeado de diamante y precisión",
+      },
+    ],
+  },
+};
 
 const KEMET_PRODUCTS = [
   {
