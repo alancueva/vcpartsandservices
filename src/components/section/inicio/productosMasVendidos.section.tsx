@@ -215,11 +215,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenImage }) => (
           loading="lazy"
         />
         <button
-          // onClick={() => onOpenImage(product.imageUrl)}
-          className="absolute bottom-4 right-4 z-20 p-2.5 bg-white/80 hover:bg-white backdrop-blur-sm rounded-lg shadow-sm border border-black/5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+          // onClick={() => onOpenImage(product.imageUrl)}  bg-white/80 hover:bg-white  border-0.5 border-white/70  backdrop-blur-sm shadow-sm border border-black/5
+          className="absolute bottom-4 right-4 z-20 p-2.5   rounded-lg   opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
           title="Ver en pantalla completa"
         >
-          <Maximize2 size={16} className="text-gray-800" />
+          <Maximize2 size={16} className="text-white/70 hover:text-white" />
         </button>
 
         {/* Overlay sutil al hacer hover */}
