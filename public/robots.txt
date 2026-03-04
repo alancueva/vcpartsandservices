@@ -1,52 +1,92 @@
+# VC Parts and Services - Robots.txt
+# Optimizado para SEO
+
+# ===========================================
+# DIRECTIVAS GENERALES
+# ===========================================
 User-agent: *
 Allow: /
 
-# Prioritize important pages
-Crawl-delay: 1
-
-# Sitemap location
+# Ubicación del sitemap
 Sitemap: https://www.vcpartsandservices.com/sitemap.xml
 
-# Block unnecessary directories
+# Velocidad de rastreo
+Crawl-delay: 1
+
+# ===========================================
+# BLOQUEAR DIRECTORIOS NO NECESARIOS
+# ===========================================
 Disallow: /_next/
 Disallow: /api/
 Disallow: /.well-known/
 Disallow: /node_modules/
 Disallow: /.git/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
 
-# Allow specific resource directories
-Allow: /public/
-Allow: /productos/
-Allow: /servicios/
-Allow: /marcas/
-Allow: /industrias/
-Allow: /clientes/
+# ===========================================
+# PERMITIR RUTAS PRINCIPALES
+# ===========================================
+Allow: /pages/nosotros
+Allow: /pages/contacto
+Allow: /pages/valores
+Allow: /pages/marcas
+Allow: /pages/industrias
 
-# Block PHP files from being indexed (except send_email.php for functionality)
-Disallow: /*.php$
-Allow: /send_email.php
+# Productos
+Allow: /pages/productos/repuestos-motores-diesel
+Allow: /pages/productos/turbocompresores
+Allow: /pages/productos/sistema-inyeccion
+Allow: /pages/productos/intercambiadores-de-calor
+Allow: /pages/productos/purificadores-separadores
+Allow: /pages/productos/sistemas-de-limpieza
+Allow: /pages/productos/equipos-de-lapeado
 
-# SEO friendly directives for search engines
-# Googlebot
+# Productos KEMET
+Allow: /pages/productos/kemet/ingenieria-de-precision-y-herramientas
+Allow: /pages/productos/kemet/limpieza-tratamientos-de-superficies-y-ndt
+Allow: /pages/productos/kemet/lapeado-de-diamante-y-precision
+Allow: /pages/productos/kemet/preparacion-de-muestras-metalograficas-geologicas-y-petrograficas
+
+# Servicios
+Allow: /pages/servicios/limpieza-de-ultrasonido
+Allow: /pages/servicios/lapeado-y-pulido-de-presicion
+
+# ===========================================
+# GOOGLEBOT
+# ===========================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
-# Bingbot
+# Googlebot Image - Indexar imágenes
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+
+# Googlebot News (si aplica)
+User-agent: Googlebot-News
+Allow: /
+
+# ===========================================
+# BINGBOT
+# ===========================================
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Special directives for image SEO
-User-agent: Googlebot-Image
-Allow: /public/
-Allow: /productos/
-Allow: /servicios/
-Allow: /marcas/
-Allow: /industrias/
-Allow: /clientes/
+# ===========================================
+# YANDEX
+# ===========================================
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
 
-# Block common bot patterns
+# ===========================================
+# BLOQUEAR BOTS NO DESEADOS
+# ===========================================
 User-agent: AhrefsBot
 Disallow: /
 
@@ -55,3 +95,24 @@ Disallow: /
 
 User-agent: DotBot
 Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent:rogerbot
+Disallow: /
+
+User-agent: daum
+Disallow: /
+
+# ===========================================
+# ETIQUETAS PARA SEO
+# ===========================================
+# Este archivo indica a los motores de búsqueda
+# las páginas que deben rastrear e indexar
+
+# Palabras clave principales para indexación:
+# VC Parts and Services, mantenimiento industrial, repuestos diesel,
+# turbocompresores, sistemas inyección, intercambiadores calor,
+# purificadores, limpieza ultrasonido, lapeado precisión,
+# KEMET, repuestos industriales Perú, Chimbote, Ancash
